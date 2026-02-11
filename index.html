@@ -4,129 +4,101 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>توزيع الحجاج - إحصائيات</title>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Cairo', sans-serif;
-            background-color: #f4f7f4;
-            margin: 0;
-            padding: 0;
-            color: #333;
-            line-height: 1.8;
-        }
-
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)), 
-                        url('https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Makkah_-_Masjid_al-Haram.jpg/1280px-Makkah_-_Masjid_al-Haram.jpg'),
-                        #1b5e20;
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            height: 450px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            text-align: center;
-            padding: 20px;
-        }
-
-        .hero h1 { font-size: 3rem; margin: 0; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
-        .hero p { font-size: 1.3rem; max-width: 800px; margin-top: 15px; opacity: 0.9; }
-
-        .container {
-            max-width: 1000px;
-            margin: -60px auto 50px;
-            padding: 0 20px;
-        }
-
-        .intro-card {
-            background: white;
-            border-radius: 15px;
-            padding: 40px;
-            margin-bottom: 30px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-            text-align: center;
-        }
-
-        .intro-card h2 { color: #1b5e20; font-size: 2rem; margin-bottom: 20px; border:none;}
-
-        .quote-box {
-            background: #f1f8f1;
-            border-right: 5px solid #c5a059;
-            padding: 25px;
-            margin: 30px 0;
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #1b5e20;
-            border-radius: 0 10px 10px 0;
-        }
-
-        .card {
-            background: white;
-            border-radius: 15px;
-            padding: 40px;
-            margin-bottom: 30px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-        }
-
-        h3 { color: #1b5e20; border-right: 6px solid #c5a059; padding-right: 15px; margin-bottom: 25px; }
-        
-        .grid { display: flex; flex-wrap: wrap; gap: 40px; align-items: center; }
-        .text-part { flex: 1.2; min-width: 300px; }
-        .chart-part { flex: 1; min-width: 300px; height: 300px; position: relative; }
-
-        .conclusion-card {
-            background: linear-gradient(135deg, #1b5e20, #154618);
-            color: white;
-            border-radius: 15px;
-            padding: 40px;
-            margin-top: 50px;
-            text-align: center;
-        }
-
-        footer { text-align: center; padding: 40px; color: #666; font-size: 0.9rem; }
+        body { font-family: 'Cairo', sans-serif; background-color: #f4f7f4; margin: 0; padding: 0; color: #333; line-height: 1.8; }
+        .hero { background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)), #1b5e20; height: 350px; display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center; padding: 20px; }
+        .hero h1 { font-size: 2.5rem; margin: 0; }
+        .container { max-width: 900px; margin: -50px auto 50px; padding: 0 20px; }
+        .card { background: white; border-radius: 15px; padding: 35px; margin-bottom: 30px; box-shadow: 0 8px 30px rgba(0,0,0,0.08); }
+        h3 { color: #1b5e20; border-right: 5px solid #c5a059; padding-right: 15px; margin-bottom: 20px; }
+        .grid { display: flex; flex-wrap: wrap; gap: 30px; align-items: center; }
+        .text-part { flex: 1; min-width: 280px; }
+        .chart-part { flex: 1; min-width: 280px; height: 280px; }
+        .quote-box { background: #f1f8f1; border-right: 5px solid #c5a059; padding: 20px; margin: 20px 0; font-weight: bold; color: #1b5e20; border-radius: 0 10px 10px 0; }
+        .conclusion-card { background: #1b5e20; color: white; border-radius: 15px; padding: 30px; text-align: center; }
+        footer { text-align: center; padding: 30px; color: #777; font-size: 0.8rem; }
+        canvas { width: 100% !important; height: 100% !important; }
     </style>
 </head>
 <body>
 
 <div class="hero">
     <h1>توزيع الحجاج</h1>
-    <p>قراءة سكانية لمستقبل إدارة الحشود في ضوء رؤية المملكة 2030</p>
+    <p>تحليل سكان وإحصائي شامل لرحلة الإيمان</p>
 </div>
 
 <div class="container">
-    
-    <div class="intro-card">
-        <h2>مستقبل الوظائف والخدمات في الحج</h2>
-        <p>تعد رحلة الحجاج اليوم قصة نجاح سعودية بامتياز، حيث انتقلت إدارة الحشود من التنظيم الميداني إلى الإدارة الرقمية الذكية.</p>
-        <div class="quote-box">
-            "خدمة الحرمين الشريفين شرف نعتز به، وقرارنا الدائم هو تذليل كافة الصعاب لراحة ضيوف الرحمن"
-        </div>
+    <div class="card" style="text-align: center;">
+        <h2>مستقبل الخدمات في الحج</h2>
+        <p>انتقلت إدارة الحشود من التنظيم الميداني إلى الإدارة الرقمية الذكية.</p>
+        <div class="quote-box">"خدمة الحرمين الشريفين شرف نعتز به"</div>
     </div>
 
     <div class="card">
         <h3>1. توزيع الحجاج حسب جهة القدوم</h3>
         <div class="grid">
             <div class="text-part">
-                <p>تشير البيانات إلى أن 90% من الحجاج يأتون من خارج المملكة، مما يؤكد المكانة المركزية للمملكة في العالم الإسلامي.</p>
+                <p>90% من الحجاج يأتون من خارج المملكة، مما يؤكد المكانة المركزية للمملكة عالمياً.</p>
             </div>
-            <div class="chart-part">
-                <canvas id="hajPieChart"></canvas>
-            </div>
+            <div class="chart-part"><canvas id="pieChart"></canvas></div>
         </div>
     </div>
 
     <div class="card">
-        <h3>2. التطور العددي والنمو الاستيعابي</h3>
+        <h3>2. التطور العددي للحجاج</h3>
         <div class="grid">
             <div class="text-part">
-                <p>تعكس أعداد الحجاج المتصاعدة كفاءة المشاريع العملاقة مثل توسعة الحرمين الشريفين وتطوير المشاعر المقدسة.</p>
+                <p>تعكس الأرقام كفاءة المشاريع العملاقة في المشاعر المقدسة وتوسعها المستمر.</p>
             </div>
-            <div class="chart-part">
-                <canvas id
+            <div class="chart-part"><canvas id="lineChart"></canvas></div>
+        </div>
+    </div>
+
+    <div class="conclusion-card">
+        <p>تؤكد الإحصائيات أن تمكين التقنية جعل المملكة نموذجاً عالمياً في إدارة الحشود السكانية الكبرى.</p>
+    </div>
+</div>
+
+<footer>تم إعداد المشروع بناءً على إحصائيات وزارة الحج والعمرة 2026</footer>
+
+<script>
+    // كود الرسم المباشر والبسيط
+    function drawCharts() {
+        // Pie Chart
+        new Chart(document.getElementById('pieChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ['خارج المملكة', 'داخل المملكة'],
+                datasets: [{
+                    data: [90, 10],
+                    backgroundColor: ['#1b5e20', '#c5a059']
+                }]
+            },
+            options: { responsive: true, maintainAspectRatio: false }
+        });
+
+        // Line Chart
+        new Chart(document.getElementById('lineChart'), {
+            type: 'line',
+            data: {
+                labels: ['2021', '2022', '2023', '2024', '2025'],
+                datasets: [{
+                    label: 'العدد بالمليون',
+                    data: [0.06, 0.9, 1.84, 1.83, 2.0],
+                    borderColor: '#1b5e20',
+                    tension: 0.3,
+                    fill: true,
+                    backgroundColor: 'rgba(27, 94, 32, 0.1)'
+                }]
+            },
+            options: { responsive: true, maintainAspectRatio: false }
+        });
+    }
+
+    // تشغيل الرسم فوراً عند تحميل الصفحة
+    window.onload = drawCharts;
+</script>
+</body>
+</html>
