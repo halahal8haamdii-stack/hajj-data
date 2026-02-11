@@ -34,7 +34,7 @@
 
 <div class="hero">
     <h1>إدارة الحشود في الحج والعمرة إحصائيًا</h1>
-    <p>تحليل المؤشرات والبيانات الرقمية لخدمة ضيوف الرحمن لعام 2026</p>
+    <p>تحليل المؤشرات والبيانات الرقمية لخدمة ضيوف الرحمن</p>
 </div>
 
 <div class="container">
@@ -52,25 +52,25 @@
 
     <div class="card">
         <h3>1. توزيع الحجاج حسب جهة القدوم</h3>
-        <p>تشكل نسبة الحجاج من الخارج 90%، مما يتطلب إدارة دقيقة للعمليات الدولية والمحلية.</p>
+        <p>تشكل نسبة الحجاج من الخارج 90%، مما يعكس الثقل الدولي لمنظومة إدارة الحشود.</p>
         <div class="chart-container"><canvas id="chart1"></canvas></div>
     </div>
 
     <div class="card">
         <h3>2. توزيع الحجاج حسب منافذ القدوم</h3>
-        <p>يعتمد 88% من الحجاج على المنافذ الجوية، مما يبرز دور المطارات في إدارة التدفق البشري.</p>
+        <p>يعتمد الغالبية العظمى من الحجاج على المنافذ الجوية لضمان سرعة الوصول وكفاءة التنظيم.</p>
         <div class="chart-container"><canvas id="chart2"></canvas></div>
     </div>
 
     <div class="card">
-        <h3>3. التطور العددي السنوي للحجاج (بالمليون)</h3>
-        <p>يوضح الرسم البياني قدرة المملكة المتزايدة على استيعاب الحشود الكبيرة عاماً بعد عام.</p>
+        <h3>3. التطور العددي السنوي للحجاج</h3>
+        <p>يوضح الرسم البياني القدرة الاستيعابية المتطورة للمملكة في التعامل مع الأعداد المتزايدة سنوياً.</p>
         <div class="chart-container"><canvas id="chart3"></canvas></div>
     </div>
 
     <div class="card">
         <h3>4. توزيع الحجاج حسب الفئات العمرية</h3>
-        <p>فئة الشباب والبالغين (31-50 عاماً) تمثل الركيزة الأساسية، مما يوجه نوعية الخدمات المقدمة.</p>
+        <p>يساعد تحليل التركيبة العمرية في تخصيص الخدمات الصحية واللوجستية بما يتناسب مع احتياجات كل فئة.</p>
         <div class="chart-container"><canvas id="chart4"></canvas></div>
     </div>
 
@@ -81,7 +81,7 @@
 
 </div>
 
-<footer>تم إعداد المشروع بناءً على المؤشرات الإحصائية الرسمية لعام 2026</footer>
+<footer>تم إعداد المشروع بناءً على المؤشرات الإحصائية الرسمية لوزارة الحج والعمرة</footer>
 
 <script>
     window.onload = function() {
@@ -102,13 +102,13 @@
 
         new Chart(document.getElementById('chart3'), {
             type: 'line',
-            data: { labels: ['2021', '2022', '2023', '2024', '2025'], datasets: [{ label: 'مليون', data: [0.06, 0.9, 1.84, 1.83, 2.0], borderColor: '#1b5e20', fill: true, backgroundColor: 'rgba(27,94,32,0.1)' }] },
+            data: { labels: ['عام 1', 'عام 2', 'عام 3', 'عام 4', 'عام 5'], datasets: [{ label: 'مليون حاجم', data: [0.06, 0.9, 1.84, 1.83, 2.0], borderColor: '#1b5e20', fill: true, backgroundColor: 'rgba(27,94,32,0.1)' }] },
             options: { responsive: true, maintainAspectRatio: false }
         });
 
         new Chart(document.getElementById('chart4'), {
             type: 'bar',
-            data: { labels: ['30-', '31-50', '51-70', '70+'], datasets: [{ label: 'النسبة', data: [15, 40, 35, 10], backgroundColor: '#c5a059' }] },
+            data: { labels: ['تحت 30', '31-50', '51-70', 'فوق 70'], datasets: [{ label: 'النسبة', data: [15, 40, 35, 10], backgroundColor: '#c5a059' }] },
             options: { responsive: true, maintainAspectRatio: false, plugins: { datalabels: labelSettings } }
         });
     };
