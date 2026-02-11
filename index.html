@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>توزيع الحجاج - عرض البيانات</title>
+    <title>توزيع الحجاج - إحصائيات</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-    
     <style>
         body {
             font-family: 'Cairo', sans-serif;
@@ -14,25 +13,31 @@
             margin: 0;
             padding: 0;
             color: #333;
+            line-height: 1.8;
         }
 
-        /* الهيدر مع صورة خلفية بديلة مستقرة */
+        /* الهيدر مع صورة الحرم المكي */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                        url('https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?q=80&w=2070&auto=format&fit=crop');
+            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), 
+                        url('https://www.spa.gov.sa/uploads/original/202306/multimedia-20230625-728867-61101.jpg');
             background-size: cover;
             background-position: center;
-            height: 400px;
+            background-attachment: fixed;
+            height: 450px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             color: white;
             text-align: center;
+            padding: 20px;
         }
 
+        .hero h1 { font-size: 3rem; margin-bottom: 10px; }
+        .hero p { font-size: 1.3rem; max-width: 800px; font-weight: 300; }
+
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: -60px auto 50px;
             padding: 20px;
         }
@@ -40,36 +45,55 @@
         .card {
             background: white;
             border-radius: 15px;
-            padding: 30px;
+            padding: 40px;
             margin-bottom: 30px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
         }
 
-        h2 { color: #1b5e20; border-right: 5px solid #c5a059; padding-right: 15px; }
+        h2 { 
+            color: #1b5e20; 
+            border-right: 6px solid #c5a059; 
+            padding-right: 15px; 
+            font-size: 1.8rem;
+        }
         
         .grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 40px;
             align-items: center;
+            margin-top: 20px;
         }
 
-        .text-part { flex: 1; min-width: 300px; }
-        .chart-part { flex: 1; min-width: 300px; text-align: center; }
+        .text-part { flex: 1.2; min-width: 300px; }
+        .chart-part { flex: 1; min-width: 300px; }
 
         .info-box {
-            background: #e8f5e9;
+            background: #f1f8f1;
             padding: 20px;
-            border-radius: 10px;
+            border-radius: 12px;
             border-right: 5px solid #1b5e20;
-            margin-top: 15px;
+            margin-top: 20px;
+            font-size: 1.1rem;
+        }
+
+        .quote-section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 1.3rem;
+            color: #1b5e20;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
 
         footer {
-            background: #1b5e20;
+            background: #154618;
             color: white;
             text-align: center;
-            padding: 30px;
+            padding: 40px;
             margin-top: 50px;
         }
 
@@ -79,74 +103,86 @@
 <body>
 
 <div class="hero">
-    <h1>إحصائيات ضيوف الرحمن</h1>
-    <p>منظومة متكاملة لخدمة الملايين</p>
+    <h1>توزيع الحجاج</h1>
+    <p>تحليل سكان وإحصائي شامل لرحلة الإيمان: كيف تدير المملكة أكبر تجمع بشري سنوي في العالم؟</p>
 </div>
 
 <div class="container">
 
+    <div class="quote-section">
+        "خدمة الحرمين الشريفين شرف نعتز به، وقرارنا الدائم هو تذليل كافة الصعاب لراحة ضيوف الرحمن."
+    </div>
+
     <div class="card">
-        <h2>01. التوزيع الجغرافي للحجيج</h2>
+        <h2>1. التوزيع الجغرافي للحجاج</h2>
         <div class="grid">
             <div class="text-part">
-                <p>تستقبل المملكة الحجاج من أكثر من 160 دولة حول العالم. تشير الإحصائيات إلى أن نسبة الحجاج من الخارج تمثل القوة الضاربة في الأعداد، مما يتطلب تنسيقاً دولياً واسعاً.</p>
+                <p>تستقبل المملكة الحجاج من أكثر من 160 دولة حول العالم. تشير البيانات إلى أن الغالبية العظمى من الحجاج يأتون من خارج المملكة، مما يتطلب منظومة لوجستية معقدة تبدأ من تأشيرات القدوم الرقمية وصولاً إلى إدارة الحشود.</p>
                 <div class="info-box">
-                    <strong>هل تعلم؟</strong> يتم إصدار أكثر من 1.5 مليون تأشيرة حج إلكترونية في وقت قياسي عبر منصة نسك.
+                    <strong>إحصائية:</strong> يتم إصدار أكثر من 1.5 مليون تأشيرة إلكترونية للحجاج عبر منصة "نسك" لضمان سلاسة القدوم.
                 </div>
             </div>
             <div class="chart-part">
-                <canvas id="myPieChart"></canvas>
+                <canvas id="hajPieChart"></canvas>
             </div>
         </div>
     </div>
 
     <div class="card">
-        <h2>02. رحلة النمو الرقمي</h2>
-        <div class="text-part">
-            <p>تهدف رؤية 2030 إلى رفع الطاقة الاستيعابية للمشاعر المقدسة. الرسم البياني يوضح كيف عادت الأرقام للتصاعد مع تحسن الخدمات اللوجستية وتوسعة الحرمين الشريفين.</p>
-        </div>
-        <div class="chart-part" style="margin-top:20px;">
-            <canvas id="myLineChart"></canvas>
+        <h2>2. رحلة النمو ورؤية 2030</h2>
+        <div class="grid">
+            <div class="text-part">
+                <p>تهدف رؤية المملكة 2030 إلى رفع الطاقة الاستيعابية لاستقبال الأعداد المتزايدة من الحجاج. الرسم البياني يوضح العودة القوية للأعداد بعد الجائحة، مع التركيز على جودة الخدمة وأمان الرحلة.</p>
+            </div>
+            <div class="chart-part">
+                <canvas id="hajLineChart"></canvas>
+            </div>
         </div>
     </div>
 
     <div class="card">
-        <h2>03. مبادرة طريق مكة</h2>
-        <p>تعد هذه المبادرة نقلة نوعية في "أنسنة" الإجراءات، حيث يتم إنهاء إجراءات دخول الحجاج من مطارات بلدانهم. هذا لا يقلل الوقت فحسب، بل يضمن وصول الحاج إلى سكنه مباشرة في مكة أو المدينة دون عناء الانتظار.</p>
+        <h2>3. مبادرة طريق مكة والتقنيات الذكية</h2>
+        <p>تعد مبادرة "طريق مكة" نقلة نوعية في تسهيل رحلة الحجاج، حيث يتم إنهاء إجراءات الدخول من مطارات بلدانهم. كما تساهم "بطاقة نسك الرقمية" في تنظيم حركة الحجاج وتوفير المعلومات اللازمة لهم بشكل لحظي، مما يقلل من فرص التيه ويزيد من كفاءة التنظيم.</p>
     </div>
 
 </div>
 
 <footer>
-    <p>تم تطوير الموقع لعرض بيانات الحج والعمرة 2026</p>
+    <p>© 2026 مشروع تحليل بيانات الحج والعمرة - جميع الحقوق محفوظة</p>
 </footer>
 
 <script>
     // الرسم الدائري
-    const ctx1 = document.getElementById('myPieChart').getContext('2d');
+    const ctx1 = document.getElementById('hajPieChart').getContext('2d');
     new Chart(ctx1, {
         type: 'doughnut',
         data: {
             labels: ['حجاج الخارج', 'حجاج الداخل'],
             datasets: [{
                 data: [90, 10],
-                backgroundColor: ['#1b5e20', '#c5a059']
+                backgroundColor: ['#1b5e20', '#c5a059'],
+                borderWidth: 2,
+                borderColor: '#ffffff'
             }]
+        },
+        options: {
+            plugins: { legend: { position: 'bottom' } }
         }
     });
 
     // الرسم الخطي
-    const ctx2 = document.getElementById('myLineChart').getContext('2d');
+    const ctx2 = document.getElementById('hajLineChart').getContext('2d');
     new Chart(ctx2, {
         type: 'line',
         data: {
             labels: ['2021', '2022', '2023', '2024', '2025'],
             datasets: [{
-                label: 'الأعداد بالمليون',
-                data: [0.06, 0.9, 1.8, 1.8, 2.0],
+                label: 'عدد الحجاج (بالمليون)',
+                data: [0.06, 0.9, 1.84, 1.83, 2.0],
                 borderColor: '#1b5e20',
-                fill: false,
-                tension: 0.1
+                backgroundColor: 'rgba(27, 94, 32, 0.1)',
+                fill: true,
+                tension: 0.3
             }]
         }
     });
