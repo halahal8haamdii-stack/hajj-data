@@ -10,84 +10,147 @@
     <style>
         body {
             font-family: 'Cairo', sans-serif;
-            background-color: #f0f2f0;
+            background-color: #ffffff;
             margin: 0;
             padding: 0;
             color: #333;
         }
 
-        /* الهيدر المطور: صورة مع لون احتياطي وتأثير متدرج */
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), 
-                        url('https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Makkah_-_Masjid_al-Haram.jpg/1280px-Makkah_-_Masjid_al-Haram.jpg'),
-                        #1b5e20; /* لون أخضر ملكي يظهر فوراً في حال تأخرت الصورة */
-            background-size: cover;
-            background-position: center;
-            height: 450px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: white;
+        /* --- المقدمة (Hero) --- */
+        .hero-section {
+            padding: 60px 20px;
             text-align: center;
+        }
+
+        .hero-section h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .hero-section h2 {
+            font-size: 1.8rem;
+            color: #444;
+            border: none;
+            margin-bottom: 40px;
+        }
+
+        /* الشكل المنحني للاقتباس (مثل الصورة 1) */
+        .quote-banner {
+            background-color: #1b5e20; /* أخضر الحج */
+            color: white;
+            padding: 40px;
+            border-radius: 0 100px 100px 0; /* انحناء جهة اليسار */
+            max-width: 80%;
+            margin: 0 auto 40px 0;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+
+        .intro-text {
+            max-width: 800px;
+            margin: 0 auto 60px;
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        /* --- البطاقات والأقسام --- */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
             padding: 20px;
         }
 
-        .hero h1 { font-size: 3rem; margin: 0; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
-        .hero p { font-size: 1.3rem; max-width: 800px; margin-top: 15px; opacity: 0.9; }
+        .section-title-box {
+            background: linear-gradient(to right, #154618, #1b5e20);
+            color: white;
+            padding: 20px 40px;
+            border-radius: 50px 50px 0 50px;
+            display: inline-block;
+            margin-bottom: 30px;
+            position: relative;
+        }
 
-        .container {
-            max-width: 1000px;
-            margin: -60px auto 50px;
-            padding: 0 20px;
+        .section-number {
+            background: white;
+            color: #1b5e20;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-left: 15px;
         }
 
         .card {
             background: white;
             border-radius: 15px;
-            padding: 40px;
-            margin-bottom: 30px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            padding: 30px;
+            margin-bottom: 50px;
+            border: 1px solid #eee;
         }
 
-        h2 { color: #1b5e20; border-right: 6px solid #c5a059; padding-right: 15px; }
-        
-        .grid { display: flex; flex-wrap: wrap; gap: 40px; align-items: center; }
+        .grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: center;
+        }
+
         .text-part { flex: 1.2; min-width: 300px; }
         .chart-part { flex: 1; min-width: 300px; }
 
-        .quote-section {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
+        /* --- الخاتمة (مثل الصورة 2) --- */
+        .conclusion-box {
+            background-color: #f0f0f5;
+            border: 2px solid #1b5e20;
+            border-radius: 20px;
+            padding: 40px;
+            margin: 60px auto;
+            max-width: 800px;
             text-align: center;
-            margin-bottom: 30px;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             color: #1b5e20;
-            font-weight: bold;
-            border: 1px solid #e0e0e0;
+            font-weight: 700;
         }
 
-        footer { background: #154618; color: white; text-align: center; padding: 40px; margin-top: 50px; }
+        .footer-banner {
+            background-color: #1b5e20;
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
     </style>
 </head>
 <body>
 
-<div class="hero">
-    <h1>توزيع الحجاج</h1>
-    <p>تحليل سكان وإحصائي شامل لرحلة الإيمان: كيف تدير المملكة أكبر تجمع بشري سنوي في العالم؟</p>
+<div class="hero-section">
+    <h1>توزيع الحجاج:</h1>
+    <h2>قراءة سكانية لمستقبل إدارة الحشود</h2>
+
+    <div class="quote-banner">
+        "خدمة الحرمين الشريفين شرف نعتز به، وقرارنا الدائم هو تذليل كافة الصعاب لراحة ضيوف الرحمن"
+    </div>
+
+    <div class="intro-text">
+        برزت إدارة الحشود في الحج كأحد أهم محركات التطور التقني واللوجستي. تسعى هذه القراءة السكانية إلى تسليط الضوء على واقع توزيع الحجاج، وتحليل أعداد القادمين، واستشراف مستقبل الخدمات في ضوء رؤية 2030.
+    </div>
 </div>
 
 <div class="container">
-    <div class="quote-section">
-        "خدمة الحرمين الشريفين شرف نعتز به، وقرارنا الدائم هو تذليل كافة الصعاب لراحة ضيوف الرحمن."
+    <div class="section-title-box">
+        <span class="section-number">01</span>
+        توزيع الحجاج حسب جهة القدوم
     </div>
-
+    
     <div class="card">
-        <h2>1. التوزيع الجغرافي للحجاج</h2>
         <div class="grid">
             <div class="text-part">
-                <p>تستقبل المملكة الحجاج من أكثر من 160 دولة. تشير البيانات إلى أن 90% من الحجاج يأتون من خارج المملكة، مما يتطلب منظومة رقمية متكاملة عبر منصة "نسك".</p>
+                <p>تستقبل المملكة الحجاج من أكثر من 160 دولة، حيث تشكل نسبة القادمين من الخارج الجزء الأكبر من المنظومة السكانية للحج.</p>
             </div>
             <div class="chart-part">
                 <canvas id="hajPieChart"></canvas>
@@ -95,11 +158,15 @@
         </div>
     </div>
 
+    <div class="section-title-box">
+        <span class="section-number">02</span>
+        التطور العددي لضيوف الرحمن
+    </div>
+
     <div class="card">
-        <h2>2. رحلة النمو ورؤية 2030</h2>
         <div class="grid">
             <div class="text-part">
-                <p>يوضح الرسم البياني عودة الأرقام للتصاعد التدريجي بعد الجائحة، سعياً للوصول إلى مستهدفات الرؤية في استضافة 30 مليون معتمر وحاج سنوياً.</p>
+                <p>شهدت الأعوام الأخيرة نمواً ملحوظاً في القدرة الاستيعابية، مما يعكس تحسناً كبيراً في كفاءة المرافق والخدمات الأرضية والجوية.</p>
             </div>
             <div class="chart-part">
                 <canvas id="hajLineChart"></canvas>
@@ -107,25 +174,23 @@
         </div>
     </div>
 
-    <div class="card">
-        <h2>3. مبادرة طريق مكة والتقنيات الذكية</h2>
-        <p>مبادرة "طريق مكة" تنهي إجراءات الدخول من مطارات المنشأ، وبطاقة نسك الرقمية تنظم حركة الحجاج لضمان تجربة آمنة وميسرة.</p>
+    <div class="conclusion-box">
+        تعكس مؤشرات توزيع الحجاج تحولاً عميقاً في إدارة الحشود، حيث انتقلت من الطرق التقليدية إلى الشراكة مع التقنية والبيانات الضخمة. ويؤكد هذا التقدم أن جودة تجربة الحاج أصبحت ركيزة أساسية لتحقيق رؤية 2030.
     </div>
 </div>
 
-<footer>
-    <p>© 2026 مشروع تحليل بيانات الحج والعمرة</p>
-</footer>
+<div class="footer-banner">
+    تم إعداد هذا المشروع بناءً على المؤشرات الإحصائية الرسمية لوزارة الحج والعمرة
+</div>
 
 <script>
-    // تفعيل إضافات الرسوم البيانية
     Chart.register(ChartDataLabels);
 
-    // الرسم الدائري
+    // Pie Chart
     new Chart(document.getElementById('hajPieChart'), {
         type: 'doughnut',
         data: {
-            labels: ['خارج المملكة', 'داخل المملكة'],
+            labels: ['حجاج الخارج', 'حجاج الداخل'],
             datasets: [{
                 data: [90, 10],
                 backgroundColor: ['#1b5e20', '#c5a059']
@@ -135,14 +200,14 @@
             plugins: {
                 datalabels: {
                     color: '#fff',
-                    formatter: (value) => value + '%',
-                    font: { weight: 'bold', size: 16 }
+                    formatter: (v) => v + '%',
+                    font: { weight: 'bold' }
                 }
             }
         }
     });
 
-    // الرسم الخطي
+    // Line Chart
     new Chart(document.getElementById('hajLineChart'), {
         type: 'line',
         data: {
@@ -151,21 +216,17 @@
                 label: 'بالمليون',
                 data: [0.06, 0.9, 1.84, 1.83, 2.0],
                 borderColor: '#1b5e20',
-                backgroundColor: 'rgba(27, 94, 32, 0.1)',
-                fill: true,
+                fill: false,
                 tension: 0.3
             }]
         },
         options: {
             plugins: {
-                datalabels: {
-                    align: 'top',
-                    color: '#1b5e20',
-                    font: { weight: 'bold' }
-                }
+                datalabels: { align: 'top', color: '#1b5e20' }
             }
         }
     });
 </script>
+
 </body>
 </html>
