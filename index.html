@@ -10,147 +10,122 @@
     <style>
         body {
             font-family: 'Cairo', sans-serif;
-            background-color: #ffffff;
+            background-color: #f4f7f4;
             margin: 0;
             padding: 0;
             color: #333;
-        }
-
-        /* --- المقدمة (Hero) --- */
-        .hero-section {
-            padding: 60px 20px;
-            text-align: center;
-        }
-
-        .hero-section h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            font-weight: 700;
-        }
-
-        .hero-section h2 {
-            font-size: 1.8rem;
-            color: #444;
-            border: none;
-            margin-bottom: 40px;
-        }
-
-        /* الشكل المنحني للاقتباس (مثل الصورة 1) */
-        .quote-banner {
-            background-color: #1b5e20; /* أخضر الحج */
-            color: white;
-            padding: 40px;
-            border-radius: 0 100px 100px 0; /* انحناء جهة اليسار */
-            max-width: 80%;
-            margin: 0 auto 40px 0;
-            text-align: center;
-            font-size: 1.2rem;
-        }
-
-        .intro-text {
-            max-width: 800px;
-            margin: 0 auto 60px;
-            font-size: 1.1rem;
-            color: #555;
             line-height: 1.8;
         }
 
-        /* --- البطاقات والأقسام --- */
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
+        /* الهيدر اللي حبيته مع تحسين استقرار الصورة */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), 
+                        url('https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Makkah_-_Masjid_al-Haram.jpg/1280px-Makkah_-_Masjid_al-Haram.jpg'),
+                        #1b5e20;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            height: 450px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
             padding: 20px;
         }
 
-        .section-title-box {
-            background: linear-gradient(to right, #154618, #1b5e20);
-            color: white;
-            padding: 20px 40px;
-            border-radius: 50px 50px 0 50px;
-            display: inline-block;
-            margin-bottom: 30px;
-            position: relative;
+        .hero h1 { font-size: 3rem; margin: 0; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+        .hero p { font-size: 1.3rem; max-width: 800px; margin-top: 15px; opacity: 0.9; }
+
+        .container {
+            max-width: 1000px;
+            margin: -60px auto 50px;
+            padding: 0 20px;
         }
 
-        .section-number {
+        /* قسم المقدمة */
+        .intro-card {
             background: white;
-            color: #1b5e20;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            margin-left: 15px;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            text-align: center;
         }
 
+        .intro-card h2 {
+            color: #1b5e20;
+            border: none;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .quote-box {
+            background: #f1f8f1;
+            border-right: 5px solid #c5a059;
+            padding: 25px;
+            margin: 30px 0;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #1b5e20;
+            border-radius: 0 10px 10px 0;
+        }
+
+        /* البطاقات الأساسية */
         .card {
             background: white;
             border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 50px;
-            border: 1px solid #eee;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
         }
 
-        .grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            align-items: center;
-        }
-
+        h3 { color: #1b5e20; border-right: 6px solid #c5a059; padding-right: 15px; margin-bottom: 25px; }
+        
+        .grid { display: flex; flex-wrap: wrap; gap: 40px; align-items: center; }
         .text-part { flex: 1.2; min-width: 300px; }
         .chart-part { flex: 1; min-width: 300px; }
 
-        /* --- الخاتمة (مثل الصورة 2) --- */
-        .conclusion-box {
-            background-color: #f0f0f5;
-            border: 2px solid #1b5e20;
-            border-radius: 20px;
+        /* قسم الخاتمة */
+        .conclusion-card {
+            background: linear-gradient(135deg, #1b5e20, #154618);
+            color: white;
+            border-radius: 15px;
             padding: 40px;
-            margin: 60px auto;
-            max-width: 800px;
+            margin-top: 50px;
             text-align: center;
-            font-size: 1.2rem;
-            color: #1b5e20;
-            font-weight: 700;
+            box-shadow: 0 10px 25px rgba(27, 94, 32, 0.2);
         }
 
-        .footer-banner {
-            background-color: #1b5e20;
-            color: white;
-            padding: 50px 20px;
-            text-align: center;
-            margin-top: 50px;
-        }
+        footer { text-align: center; padding: 40px; color: #666; font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
-<div class="hero-section">
-    <h1>توزيع الحجاج:</h1>
-    <h2>قراءة سكانية لمستقبل إدارة الحشود</h2>
-
-    <div class="quote-banner">
-        "خدمة الحرمين الشريفين شرف نعتز به، وقرارنا الدائم هو تذليل كافة الصعاب لراحة ضيوف الرحمن"
-    </div>
-
-    <div class="intro-text">
-        برزت إدارة الحشود في الحج كأحد أهم محركات التطور التقني واللوجستي. تسعى هذه القراءة السكانية إلى تسليط الضوء على واقع توزيع الحجاج، وتحليل أعداد القادمين، واستشراف مستقبل الخدمات في ضوء رؤية 2030.
-    </div>
+<div class="hero">
+    <h1>توزيع الحجاج</h1>
+    <p>قراءة سكانية لمستقبل إدارة الحشود في ضوء رؤية المملكة 2030</p>
 </div>
 
 <div class="container">
-    <div class="section-title-box">
-        <span class="section-number">01</span>
-        توزيع الحجاج حسب جهة القدوم
-    </div>
     
+    <div class="intro-card">
+        <h2>مستقبل الوظائف والخدمات في الحج</h2>
+        <p>تعد رحلة الحجاج اليوم قصة نجاح سعودية بامتياز، حيث انتقلت إدارة أكبر تجمع بشري في العالم من التنظيم الميداني إلى الإدارة الرقمية الذكية القائمة على البيانات السكانية الدقيقة.</p>
+        
+        <div class="quote-box">
+            "خدمة الحرمين الشريفين شرف نعتز به، وقرارنا الدائم هو تذليل كافة الصعاب لراحة ضيوف الرحمن"
+        </div>
+        
+        <p>تسعى هذه القراءة الإحصائية إلى تحليل واقع توزيع الحجاج، وتطور أعداد القادمين، وإبراز دور التقنية في تحسين تجربة ضيوف الرحمن.</p>
+    </div>
+
     <div class="card">
+        <h3>1. توزيع الحجاج حسب جهة القدوم</h3>
         <div class="grid">
             <div class="text-part">
-                <p>تستقبل المملكة الحجاج من أكثر من 160 دولة، حيث تشكل نسبة القادمين من الخارج الجزء الأكبر من المنظومة السكانية للحج.</p>
+                <p>تستقبل المملكة الحجاج من أكثر من 160 دولة. يوضح الرسم البياني بجانبنا تفوق نسبة القادمين من الخارج، مما يعكس الثقل الدولي لمنظومة الحج السعودية.</p>
             </div>
             <div class="chart-part">
                 <canvas id="hajPieChart"></canvas>
@@ -158,15 +133,11 @@
         </div>
     </div>
 
-    <div class="section-title-box">
-        <span class="section-number">02</span>
-        التطور العددي لضيوف الرحمن
-    </div>
-
     <div class="card">
+        <h3>2. التطور العددي والنمو الاستيعابي</h3>
         <div class="grid">
             <div class="text-part">
-                <p>شهدت الأعوام الأخيرة نمواً ملحوظاً في القدرة الاستيعابية، مما يعكس تحسناً كبيراً في كفاءة المرافق والخدمات الأرضية والجوية.</p>
+                <p>تعكس أعداد الحجاج المتصاعدة كفاءة البنية التحتية والمشاريع العملاقة مثل توسعة الحرمين الشريفين وتطوير قطار المشاعر المقدسة.</p>
             </div>
             <div class="chart-part">
                 <canvas id="hajLineChart"></canvas>
@@ -174,14 +145,15 @@
         </div>
     </div>
 
-    <div class="conclusion-box">
-        تعكس مؤشرات توزيع الحجاج تحولاً عميقاً في إدارة الحشود، حيث انتقلت من الطرق التقليدية إلى الشراكة مع التقنية والبيانات الضخمة. ويؤكد هذا التقدم أن جودة تجربة الحاج أصبحت ركيزة أساسية لتحقيق رؤية 2030.
+    <div class="conclusion-card">
+        <p>ختاماً، إن الأرقام والإحصائيات تؤكد أن تمكين التقنية في خدمة الحجاج لم يعد خياراً بل ضرورة، وهو ما جعل المملكة اليوم نموذجاً عالمياً يُحتذى به في إدارة الحشود السكانية الكبرى بكل أمان وطمأنينة.</p>
     </div>
+
 </div>
 
-<div class="footer-banner">
-    تم إعداد هذا المشروع بناءً على المؤشرات الإحصائية الرسمية لوزارة الحج والعمرة
-</div>
+<footer>
+    تم إعداد هذا المشروع بناءً على المؤشرات الإحصائية الرسمية لوزارة الحج والعمرة 2026
+</footer>
 
 <script>
     Chart.register(ChartDataLabels);
@@ -196,37 +168,3 @@
                 backgroundColor: ['#1b5e20', '#c5a059']
             }]
         },
-        options: {
-            plugins: {
-                datalabels: {
-                    color: '#fff',
-                    formatter: (v) => v + '%',
-                    font: { weight: 'bold' }
-                }
-            }
-        }
-    });
-
-    // Line Chart
-    new Chart(document.getElementById('hajLineChart'), {
-        type: 'line',
-        data: {
-            labels: ['2021', '2022', '2023', '2024', '2025'],
-            datasets: [{
-                label: 'بالمليون',
-                data: [0.06, 0.9, 1.84, 1.83, 2.0],
-                borderColor: '#1b5e20',
-                fill: false,
-                tension: 0.3
-            }]
-        },
-        options: {
-            plugins: {
-                datalabels: { align: 'top', color: '#1b5e20' }
-            }
-        }
-    });
-</script>
-
-</body>
-</html>
