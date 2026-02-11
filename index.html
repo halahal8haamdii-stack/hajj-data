@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>توزيع الحجاج - إحصائيات</title>
+    
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+    
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -17,9 +19,8 @@
             line-height: 1.8;
         }
 
-        /* الهيدر اللي حبيته مع تحسين استقرار الصورة */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), 
+            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)), 
                         url('https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Makkah_-_Masjid_al-Haram.jpg/1280px-Makkah_-_Masjid_al-Haram.jpg'),
                         #1b5e20;
             background-size: cover;
@@ -44,7 +45,6 @@
             padding: 0 20px;
         }
 
-        /* قسم المقدمة */
         .intro-card {
             background: white;
             border-radius: 15px;
@@ -54,12 +54,7 @@
             text-align: center;
         }
 
-        .intro-card h2 {
-            color: #1b5e20;
-            border: none;
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
+        .intro-card h2 { color: #1b5e20; font-size: 2rem; margin-bottom: 20px; border:none;}
 
         .quote-box {
             background: #f1f8f1;
@@ -72,7 +67,6 @@
             border-radius: 0 10px 10px 0;
         }
 
-        /* البطاقات الأساسية */
         .card {
             background: white;
             border-radius: 15px;
@@ -85,9 +79,8 @@
         
         .grid { display: flex; flex-wrap: wrap; gap: 40px; align-items: center; }
         .text-part { flex: 1.2; min-width: 300px; }
-        .chart-part { flex: 1; min-width: 300px; }
+        .chart-part { flex: 1; min-width: 300px; position: relative; min-height: 250px; }
 
-        /* قسم الخاتمة */
         .conclusion-card {
             background: linear-gradient(135deg, #1b5e20, #154618);
             color: white;
@@ -95,10 +88,11 @@
             padding: 40px;
             margin-top: 50px;
             text-align: center;
-            box-shadow: 0 10px 25px rgba(27, 94, 32, 0.2);
         }
 
         footer { text-align: center; padding: 40px; color: #666; font-size: 0.9rem; }
+        
+        canvas { width: 100% !important; height: auto !important; }
     </style>
 </head>
 <body>
@@ -112,20 +106,18 @@
     
     <div class="intro-card">
         <h2>مستقبل الوظائف والخدمات في الحج</h2>
-        <p>تعد رحلة الحجاج اليوم قصة نجاح سعودية بامتياز، حيث انتقلت إدارة أكبر تجمع بشري في العالم من التنظيم الميداني إلى الإدارة الرقمية الذكية القائمة على البيانات السكانية الدقيقة.</p>
-        
+        <p>تعد رحلة الحجاج اليوم قصة نجاح سعودية بامتياز، حيث انتقلت إدارة أكبر تجمع بشري في العالم من التنظيم الميداني إلى الإدارة الرقمية الذكية.</p>
         <div class="quote-box">
             "خدمة الحرمين الشريفين شرف نعتز به، وقرارنا الدائم هو تذليل كافة الصعاب لراحة ضيوف الرحمن"
         </div>
-        
-        <p>تسعى هذه القراءة الإحصائية إلى تحليل واقع توزيع الحجاج، وتطور أعداد القادمين، وإبراز دور التقنية في تحسين تجربة ضيوف الرحمن.</p>
+        <p>تسعى هذه القراءة الإحصائية إلى تحليل واقع توزيع الحجاج، وتطور أعداد القادمين، وإبراز دور التقنية في تحسين تجربتهم.</p>
     </div>
 
     <div class="card">
         <h3>1. توزيع الحجاج حسب جهة القدوم</h3>
         <div class="grid">
             <div class="text-part">
-                <p>تستقبل المملكة الحجاج من أكثر من 160 دولة. يوضح الرسم البياني بجانبنا تفوق نسبة القادمين من الخارج، مما يعكس الثقل الدولي لمنظومة الحج السعودية.</p>
+                <p>تستقبل المملكة الحجاج من أكثر من 160 دولة. يوضح الرسم البياني تفوق نسبة القادمين من الخارج بنسبة 90%.</p>
             </div>
             <div class="chart-part">
                 <canvas id="hajPieChart"></canvas>
@@ -137,7 +129,7 @@
         <h3>2. التطور العددي والنمو الاستيعابي</h3>
         <div class="grid">
             <div class="text-part">
-                <p>تعكس أعداد الحجاج المتصاعدة كفاءة البنية التحتية والمشاريع العملاقة مثل توسعة الحرمين الشريفين وتطوير قطار المشاعر المقدسة.</p>
+                <p>تعكس أعداد الحجاج المتصاعدة كفاءة البنية التحتية والمشاريع العملاقة مثل توسعة الحرمين الشريفين وتطوير قطار المشاعر.</p>
             </div>
             <div class="chart-part">
                 <canvas id="hajLineChart"></canvas>
@@ -146,7 +138,7 @@
     </div>
 
     <div class="conclusion-card">
-        <p>ختاماً، إن الأرقام والإحصائيات تؤكد أن تمكين التقنية في خدمة الحجاج لم يعد خياراً بل ضرورة، وهو ما جعل المملكة اليوم نموذجاً عالمياً يُحتذى به في إدارة الحشود السكانية الكبرى بكل أمان وطمأنينة.</p>
+        <p>ختاماً، إن الأرقام والإحصائيات تؤكد أن تمكين التقنية في خدمة الحجاج جعل المملكة نموذجاً عالمياً يُحتذى به في إدارة الحشود السكانية الكبرى.</p>
     </div>
 
 </div>
@@ -156,15 +148,35 @@
 </footer>
 
 <script>
-    Chart.register(ChartDataLabels);
+    // ضمان تشغيل الكود بعد تحميل المكتبات
+    window.onload = function() {
+        Chart.register(ChartDataLabels);
 
-    // Pie Chart
-    new Chart(document.getElementById('hajPieChart'), {
-        type: 'doughnut',
-        data: {
-            labels: ['حجاج الخارج', 'حجاج الداخل'],
-            datasets: [{
-                data: [90, 10],
-                backgroundColor: ['#1b5e20', '#c5a059']
-            }]
-        },
+        // الرسم الدائري
+        const ctxPie = document.getElementById('hajPieChart');
+        if(ctxPie) {
+            new Chart(ctxPie, {
+                type: 'doughnut',
+                data: {
+                    labels: ['حجاج الخارج', 'حجاج الداخل'],
+                    datasets: [{
+                        data: [90, 10],
+                        backgroundColor: ['#1b5e20', '#c5a059']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        datalabels: {
+                            color: '#fff',
+                            formatter: (v) => v + '%',
+                            font: { weight: 'bold', size: 16 }
+                        }
+                    }
+                }
+            });
+        }
+
+        // الرسم الخطي
+        const ctxLine = document.
