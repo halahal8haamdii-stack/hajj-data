@@ -12,10 +12,10 @@
     <style>
         body { font-family: 'Cairo', sans-serif; background-color: #f4f7f4; margin: 0; padding: 0; color: #333; line-height: 1.8; }
         
-        /* الهيدر المحدث بمسار مباشر لضمان الظهور */
+        /* حل مشكلة الهيدر باستخدام المسار الكامل للمستودع */
         .hero { 
             background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), 
-                        url('./header.jpg'); /* أضفنا نقطة لضمان البحث في نفس المجلد */
+                        url('https://raw.githubusercontent.com/halahal8haamdii-stack/hajj-data/main/header.jpg'); 
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -33,11 +33,9 @@
 
         .container { max-width: 1000px; margin: -60px auto 50px; padding: 0 20px; }
         .card { background: white; border-radius: 20px; padding: 40px; margin-bottom: 35px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); }
-        h2, h3 { color: #1b5e20; border-right: 6px solid #c5a059; padding-right: 15px; }
+        h2 { color: #1b5e20; border-right: 6px solid #c5a059; padding-right: 15px; }
         .grid { display: flex; flex-wrap: wrap; gap: 40px; align-items: center; margin-top: 20px; }
-        .text-part { flex: 1.2; min-width: 300px; }
         .chart-part { flex: 1; min-width: 300px; height: 350px; position: relative; }
-        .quote-box { background: #f1f8f1; border-right: 5px solid #c5a059; padding: 30px; margin: 30px 0; font-weight: bold; color: #1b5e20; border-radius: 0 15px 15px 0; font-size: 1.2rem; text-align: center; }
         .conclusion-card { background: linear-gradient(135deg, #1b5e20, #154618); color: white; border-radius: 20px; padding: 50px; text-align: center; }
         footer { text-align: center; padding: 40px; color: #666; font-size: 0.9rem; }
     </style>
@@ -53,13 +51,11 @@
     <div class="card">
         <h2>مستقبل الخدمات الوظيفية والتقنية في منظومة الحج</h2>
         <p>تعد رحلة الحج أكبر تجمع بشري سنوي منتظم على مستوى العالم، وتتطلب أعلى درجات الدقة والابتكار لضمان أمن وسلامة وراحة كل حاج عبر دمج أحدث التقنيات والتحليلات البيانية المتقدمة.</p>
-        <div class="quote-box">"خدمة الحرمين الشريفين شرف نعتز به"</div>
     </div>
 
     <div class="card">
         <h3>1. توزيع الحجاج حسب جهة القدوم</h3>
         <div class="grid">
-            <div class="text-part"><p>تشكل نسبة القادمين من الخارج 90% من الإجمالي، مما يبرز الثقل الدولي للمنظومة.</p></div>
             <div class="chart-part"><canvas id="pieChart"></canvas></div>
         </div>
     </div>
@@ -67,7 +63,6 @@
     <div class="card">
         <h3>2. توزيع الحجاج حسب منافذ القدوم</h3>
         <div class="grid">
-            <div class="text-part"><p>يستحوذ المنفذ الجوي على الحصة الأكبر لضمان وصول سريع وآمن للحجاج من القارات البعيدة.</p></div>
             <div class="chart-part"><canvas id="barChart"></canvas></div>
         </div>
     </div>
@@ -75,7 +70,6 @@
     <div class="card">
         <h3>3. مؤشرات النمو والتطور العددي</h3>
         <div class="grid">
-            <div class="text-part"><p>تؤكد البيانات عودة تصاعدية قوية في أعداد الحجاج، مما يعكس نجاح المشاريع التوسعية العملاقة.</p></div>
             <div class="chart-part"><canvas id="lineChart"></canvas></div>
         </div>
     </div>
@@ -83,7 +77,6 @@
     <div class="card">
         <h3>4. توزيع الحجاج حسب الفئات العمرية</h3>
         <div class="grid">
-            <div class="text-part"><p>يساعد تحليل الأعمار في توجيه الخدمات بشكل دقيق بما يناسب احتياجات كل فئة.</p></div>
             <div class="chart-part"><canvas id="ageChart"></canvas></div>
         </div>
     </div>
@@ -99,7 +92,17 @@
 <script>
     window.onload = function() {
         Chart.register(ChartDataLabels);
-        const opt = { responsive: true, maintainAspectRatio: false, plugins: { datalabels: { color: '#1b5e20', font: { weight: 'bold', size: 14 }, formatter: (v) => v + '%' } } };
+        const opt = { 
+            responsive: true, 
+            maintainAspectRatio: false, 
+            plugins: { 
+                datalabels: { 
+                    color: '#1b5e20', 
+                    font: { weight: 'bold', size: 14 }, 
+                    formatter: (v) => v + '%' 
+                } 
+            } 
+        };
 
         new Chart(document.getElementById('pieChart'), { type: 'doughnut', data: { labels: ['خارج المملكة', 'داخل المملكة'], datasets: [{ data: [90, 10], backgroundColor: ['#1b5e20', '#c5a059'] }] }, options: opt });
         new Chart(document.getElementById('barChart'), { type: 'bar', data: { labels: ['جوي', 'بري', 'بحري'], datasets: [{ label: 'النسبة', data: [88, 10, 2], backgroundColor: '#1b5e20' }] }, options: opt });
