@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>توزيع الحجاج - إحصائيات</title>
     
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
     
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
@@ -79,7 +79,7 @@
         
         .grid { display: flex; flex-wrap: wrap; gap: 40px; align-items: center; }
         .text-part { flex: 1.2; min-width: 300px; }
-        .chart-part { flex: 1; min-width: 300px; position: relative; min-height: 250px; }
+        .chart-part { flex: 1; min-width: 300px; height: 300px; position: relative; }
 
         .conclusion-card {
             background: linear-gradient(135deg, #1b5e20, #154618);
@@ -91,8 +91,6 @@
         }
 
         footer { text-align: center; padding: 40px; color: #666; font-size: 0.9rem; }
-        
-        canvas { width: 100% !important; height: auto !important; }
     </style>
 </head>
 <body>
@@ -106,18 +104,17 @@
     
     <div class="intro-card">
         <h2>مستقبل الوظائف والخدمات في الحج</h2>
-        <p>تعد رحلة الحجاج اليوم قصة نجاح سعودية بامتياز، حيث انتقلت إدارة أكبر تجمع بشري في العالم من التنظيم الميداني إلى الإدارة الرقمية الذكية.</p>
+        <p>تعد رحلة الحجاج اليوم قصة نجاح سعودية بامتياز، حيث انتقلت إدارة الحشود من التنظيم الميداني إلى الإدارة الرقمية الذكية.</p>
         <div class="quote-box">
             "خدمة الحرمين الشريفين شرف نعتز به، وقرارنا الدائم هو تذليل كافة الصعاب لراحة ضيوف الرحمن"
         </div>
-        <p>تسعى هذه القراءة الإحصائية إلى تحليل واقع توزيع الحجاج، وتطور أعداد القادمين، وإبراز دور التقنية في تحسين تجربتهم.</p>
     </div>
 
     <div class="card">
         <h3>1. توزيع الحجاج حسب جهة القدوم</h3>
         <div class="grid">
             <div class="text-part">
-                <p>تستقبل المملكة الحجاج من أكثر من 160 دولة. يوضح الرسم البياني تفوق نسبة القادمين من الخارج بنسبة 90%.</p>
+                <p>تشير البيانات إلى أن 90% من الحجاج يأتون من خارج المملكة، مما يؤكد المكانة المركزية للمملكة في العالم الإسلامي.</p>
             </div>
             <div class="chart-part">
                 <canvas id="hajPieChart"></canvas>
@@ -129,54 +126,7 @@
         <h3>2. التطور العددي والنمو الاستيعابي</h3>
         <div class="grid">
             <div class="text-part">
-                <p>تعكس أعداد الحجاج المتصاعدة كفاءة البنية التحتية والمشاريع العملاقة مثل توسعة الحرمين الشريفين وتطوير قطار المشاعر.</p>
+                <p>تعكس أعداد الحجاج المتصاعدة كفاءة المشاريع العملاقة مثل توسعة الحرمين الشريفين وتطوير المشاعر المقدسة.</p>
             </div>
             <div class="chart-part">
-                <canvas id="hajLineChart"></canvas>
-            </div>
-        </div>
-    </div>
-
-    <div class="conclusion-card">
-        <p>ختاماً، إن الأرقام والإحصائيات تؤكد أن تمكين التقنية في خدمة الحجاج جعل المملكة نموذجاً عالمياً يُحتذى به في إدارة الحشود السكانية الكبرى.</p>
-    </div>
-
-</div>
-
-<footer>
-    تم إعداد هذا المشروع بناءً على المؤشرات الإحصائية الرسمية لوزارة الحج والعمرة 2026
-</footer>
-
-<script>
-    // ضمان تشغيل الكود بعد تحميل المكتبات
-    window.onload = function() {
-        Chart.register(ChartDataLabels);
-
-        // الرسم الدائري
-        const ctxPie = document.getElementById('hajPieChart');
-        if(ctxPie) {
-            new Chart(ctxPie, {
-                type: 'doughnut',
-                data: {
-                    labels: ['حجاج الخارج', 'حجاج الداخل'],
-                    datasets: [{
-                        data: [90, 10],
-                        backgroundColor: ['#1b5e20', '#c5a059']
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        datalabels: {
-                            color: '#fff',
-                            formatter: (v) => v + '%',
-                            font: { weight: 'bold', size: 16 }
-                        }
-                    }
-                }
-            });
-        }
-
-        // الرسم الخطي
-        const ctxLine = document.
+                <canvas id
