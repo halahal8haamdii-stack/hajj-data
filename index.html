@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>توزيع الحجاج - إحصائيات</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
@@ -16,10 +17,10 @@
             line-height: 1.8;
         }
 
-        /* الهيدر مع صورة الحرم المكي */
+        /* الهيدر مع صورة الحرم المكي الشريف */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), 
-                        url('https://www.spa.gov.sa/uploads/original/202306/multimedia-20230625-728867-61101.jpg');
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1591604129939-f1efa4d9f7fa?auto=format&fit=crop&q=80&w=2070');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -33,7 +34,7 @@
             padding: 20px;
         }
 
-        .hero h1 { font-size: 3rem; margin-bottom: 10px; }
+        .hero h1 { font-size: 3rem; margin-bottom: 10px; text-shadow: 2px 2px 5px rgba(0,0,0,0.3); }
         .hero p { font-size: 1.3rem; max-width: 800px; font-weight: 300; }
 
         .container {
@@ -74,7 +75,6 @@
             border-radius: 12px;
             border-right: 5px solid #1b5e20;
             margin-top: 20px;
-            font-size: 1.1rem;
         }
 
         .quote-section {
@@ -117,9 +117,9 @@
         <h2>1. التوزيع الجغرافي للحجاج</h2>
         <div class="grid">
             <div class="text-part">
-                <p>تستقبل المملكة الحجاج من أكثر من 160 دولة حول العالم. تشير البيانات إلى أن الغالبية العظمى من الحجاج يأتون من خارج المملكة، مما يتطلب منظومة لوجستية معقدة تبدأ من تأشيرات القدوم الرقمية وصولاً إلى إدارة الحشود.</p>
+                <p>تستقبل المملكة الحجاج من أكثر من 160 دولة حول العالم. تشير البيانات إلى أن الغالبية العظمى من الحجاج يأتون من خارج المملكة، مما يتطلب منظومة لوجستية معقدة.</p>
                 <div class="info-box">
-                    <strong>إحصائية:</strong> يتم إصدار أكثر من 1.5 مليون تأشيرة إلكترونية للحجاج عبر منصة "نسك" لضمان سلاسة القدوم.
+                    <strong>إحصائية:</strong> 90% من الحجاج يأتون من خارج المملكة عبر المنافذ المختلفة.
                 </div>
             </div>
             <div class="chart-part">
@@ -132,7 +132,7 @@
         <h2>2. رحلة النمو ورؤية 2030</h2>
         <div class="grid">
             <div class="text-part">
-                <p>تهدف رؤية المملكة 2030 إلى رفع الطاقة الاستيعابية لاستقبال الأعداد المتزايدة من الحجاج. الرسم البياني يوضح العودة القوية للأعداد بعد الجائحة، مع التركيز على جودة الخدمة وأمان الرحلة.</p>
+                <p>تهدف الرؤية إلى رفع الطاقة الاستيعابية. يوضح الرسم البياني عودة الأرقام للتصاعد التدريجي مع التركيز على جودة الخدمة.</p>
             </div>
             <div class="chart-part">
                 <canvas id="hajLineChart"></canvas>
@@ -142,7 +142,7 @@
 
     <div class="card">
         <h2>3. مبادرة طريق مكة والتقنيات الذكية</h2>
-        <p>تعد مبادرة "طريق مكة" نقلة نوعية في تسهيل رحلة الحجاج، حيث يتم إنهاء إجراءات الدخول من مطارات بلدانهم. كما تساهم "بطاقة نسك الرقمية" في تنظيم حركة الحجاج وتوفير المعلومات اللازمة لهم بشكل لحظي، مما يقلل من فرص التيه ويزيد من كفاءة التنظيم.</p>
+        <p>تعد مبادرة "طريق مكة" نقلة نوعية في تسهيل رحلة الحجاج، حيث يتم إنهاء إجراءات الدخول من مطارات بلدانهم، بالإضافة إلى استخدام بطاقة نسك الرقمية لتنظيم كافة مراحل الرحلة.</p>
     </div>
 
 </div>
@@ -152,7 +152,10 @@
 </footer>
 
 <script>
-    // الرسم الدائري
+    // تفعيل إضافة الأرقام فوق الرسوم البيانية
+    Chart.register(ChartDataLabels);
+
+    // الرسم الدائري مع النسب
     const ctx1 = document.getElementById('hajPieChart').getContext('2d');
     new Chart(ctx1, {
         type: 'doughnut',
@@ -161,32 +164,23 @@
             datasets: [{
                 data: [90, 10],
                 backgroundColor: ['#1b5e20', '#c5a059'],
-                borderWidth: 2,
-                borderColor: '#ffffff'
             }]
         },
         options: {
-            plugins: { legend: { position: 'bottom' } }
+            plugins: {
+                legend: { position: 'bottom' },
+                datalabels: {
+                    color: '#fff',
+                    formatter: (value) => value + '%',
+                    font: { weight: 'bold', size: 14 }
+                }
+            }
         }
     });
 
-    // الرسم الخطي
+    // الرسم الخطي مع الأرقام
     const ctx2 = document.getElementById('hajLineChart').getContext('2d');
     new Chart(ctx2, {
         type: 'line',
         data: {
-            labels: ['2021', '2022', '2023', '2024', '2025'],
-            datasets: [{
-                label: 'عدد الحجاج (بالمليون)',
-                data: [0.06, 0.9, 1.84, 1.83, 2.0],
-                borderColor: '#1b5e20',
-                backgroundColor: 'rgba(27, 94, 32, 0.1)',
-                fill: true,
-                tension: 0.3
-            }]
-        }
-    });
-</script>
-
-</body>
-</html>
+            labels: ['2021', '2022', '2023', '20
