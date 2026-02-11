@@ -12,10 +12,10 @@
     <style>
         body { font-family: 'Cairo', sans-serif; background-color: #f4f7f4; margin: 0; padding: 0; color: #333; line-height: 1.8; }
         
-        /* حل مشكلة الهيدر باستخدام المسار الكامل للمستودع */
+        /* التعديل الذهبي لضمان ظهور الصورة المرفوعة باسم header.jpg */
         .hero { 
             background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), 
-                        url('https://raw.githubusercontent.com/halahal8haamdii-stack/hajj-data/main/header.jpg'); 
+                        url('./header.jpg'); 
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -31,84 +31,4 @@
         .hero h1 { font-size: 3rem; margin: 0; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
         .hero p { font-size: 1.4rem; margin-top: 15px; opacity: 0.9; }
 
-        .container { max-width: 1000px; margin: -60px auto 50px; padding: 0 20px; }
-        .card { background: white; border-radius: 20px; padding: 40px; margin-bottom: 35px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); }
-        h2 { color: #1b5e20; border-right: 6px solid #c5a059; padding-right: 15px; }
-        .grid { display: flex; flex-wrap: wrap; gap: 40px; align-items: center; margin-top: 20px; }
-        .chart-part { flex: 1; min-width: 300px; height: 350px; position: relative; }
-        .conclusion-card { background: linear-gradient(135deg, #1b5e20, #154618); color: white; border-radius: 20px; padding: 50px; text-align: center; }
-        footer { text-align: center; padding: 40px; color: #666; font-size: 0.9rem; }
-    </style>
-</head>
-<body>
-
-<div class="hero">
-    <h1>توزيع الحجاج</h1>
-    <p>تحليل إحصائي دقيق وتوزيع جغرافي لضيوف الرحمن لعام 2026</p>
-</div>
-
-<div class="container">
-    <div class="card">
-        <h2>مستقبل الخدمات الوظيفية والتقنية في منظومة الحج</h2>
-        <p>تعد رحلة الحج أكبر تجمع بشري سنوي منتظم على مستوى العالم، وتتطلب أعلى درجات الدقة والابتكار لضمان أمن وسلامة وراحة كل حاج عبر دمج أحدث التقنيات والتحليلات البيانية المتقدمة.</p>
-    </div>
-
-    <div class="card">
-        <h3>1. توزيع الحجاج حسب جهة القدوم</h3>
-        <div class="grid">
-            <div class="chart-part"><canvas id="pieChart"></canvas></div>
-        </div>
-    </div>
-
-    <div class="card">
-        <h3>2. توزيع الحجاج حسب منافذ القدوم</h3>
-        <div class="grid">
-            <div class="chart-part"><canvas id="barChart"></canvas></div>
-        </div>
-    </div>
-
-    <div class="card">
-        <h3>3. مؤشرات النمو والتطور العددي</h3>
-        <div class="grid">
-            <div class="chart-part"><canvas id="lineChart"></canvas></div>
-        </div>
-    </div>
-
-    <div class="card">
-        <h3>4. توزيع الحجاج حسب الفئات العمرية</h3>
-        <div class="grid">
-            <div class="chart-part"><canvas id="ageChart"></canvas></div>
-        </div>
-    </div>
-
-    <div class="conclusion-card">
-        <h3>خاتمة وقراءة مستقبلية للمنظومة</h3>
-        <p>إن النجاح الاستثنائي في إدارة ملايين الحجاج يثبت تفوق المملكة في "الإدارة الذكية" القائمة على البيانات الضخمة.</p>
-    </div>
-</div>
-
-<footer>تم إعداد المشروع بناءً على المؤشرات الإحصائية الرسمية لعام 2026</footer>
-
-<script>
-    window.onload = function() {
-        Chart.register(ChartDataLabels);
-        const opt = { 
-            responsive: true, 
-            maintainAspectRatio: false, 
-            plugins: { 
-                datalabels: { 
-                    color: '#1b5e20', 
-                    font: { weight: 'bold', size: 14 }, 
-                    formatter: (v) => v + '%' 
-                } 
-            } 
-        };
-
-        new Chart(document.getElementById('pieChart'), { type: 'doughnut', data: { labels: ['خارج المملكة', 'داخل المملكة'], datasets: [{ data: [90, 10], backgroundColor: ['#1b5e20', '#c5a059'] }] }, options: opt });
-        new Chart(document.getElementById('barChart'), { type: 'bar', data: { labels: ['جوي', 'بري', 'بحري'], datasets: [{ label: 'النسبة', data: [88, 10, 2], backgroundColor: '#1b5e20' }] }, options: opt });
-        new Chart(document.getElementById('lineChart'), { type: 'line', data: { labels: ['2021', '2022', '2023', '2024', '2025'], datasets: [{ label: 'بالمليون', data: [0.06, 0.9, 1.84, 1.83, 2.0], borderColor: '#1b5e20', fill: true, backgroundColor: 'rgba(27,94,32,0.1)' }] }, options: { responsive: true, maintainAspectRatio: false } });
-        new Chart(document.getElementById('ageChart'), { type: 'bar', data: { labels: ['تحت 30', '31-50', '51-70', 'فوق 70'], datasets: [{ label: 'النسبة', data: [15, 40, 35, 10], backgroundColor: '#c5a059' }] }, options: opt });
-    };
-</script>
-</body>
-</html>
+        .container { max-width: 1000px; margin: -60px
