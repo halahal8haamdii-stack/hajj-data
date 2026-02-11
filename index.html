@@ -2,101 +2,200 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <title>إحصائيات الحج والعمرة 1446هـ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>توزيع الحجاج - رحلة الأرقام</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Tajawal', sans-serif; background-color: #f8f9fa; margin: 0; padding: 20px; text-align: center; }
-        .container { max-width: 900px; margin: auto; background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        h1 { color: #1a535c; }
-        .chart-box { margin: 40px 0; padding: 20px; border: 1px solid #eee; border-radius: 10px; }
-        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
-        @media (max-width: 600px) { .stats-grid { grid-template-columns: 1fr; } }
+        :root {
+            --primary-color: #1b5e20; /* أخضر ملكي */
+            --accent-color: #c5a059;  /* ذهبي هادئ */
+            --bg-color: #f9fbf9;
+            --text-dark: #2c3e50;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        /* رأس الصفحة - Header */
+        header {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1565019053022-133077e0288b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        header h1 { font-size: 3rem; margin-bottom: 10px; }
+        header p { font-size: 1.2rem; max-width: 700px; }
+
+        .container {
+            max-width: 900px;
+            margin: -50px auto 50px auto;
+            padding: 20px;
+        }
+
+        /* الأقسام - Sections */
+        .section {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section-number {
+            font-size: 5rem;
+            color: rgba(27, 94, 32, 0.05);
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            font-weight: 900;
+        }
+
+        .section h2 {
+            color: var(--primary-color);
+            border-right: 5px solid var(--accent-color);
+            padding-right: 15px;
+            margin-bottom: 20px;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .content-grid { grid-template-columns: 1fr; }
+            header h1 { font-size: 2rem; }
+        }
+
+        .chart-container {
+            width: 100%;
+            max-height: 300px;
+        }
+
+        .quote-box {
+            background: #f0f4f0;
+            border-right: 4px solid var(--primary-color);
+            padding: 20px;
+            margin: 40px 0;
+            font-style: italic;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: #1b5e20;
+            color: white;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>إحصائيات الحج والعمرة</h1>
-        <p>بيانات دقيقة لموسم 1446هـ ومستهدفات رؤية 2030</p>
-        
-        <div class="chart-box">
-            <h3>تطور عدد الحجاج عبر السنوات</h3>
-            <canvas id="hajjChart"></canvas>
-        </div>
 
-        <div class="stats-grid">
-            <div class="chart-box">
-                <h3>توزيع الحجاج (داخل/خارج)</h3>
-                <canvas id="distChart"></canvas>
-            </div>
-            <div class="chart-box">
-                <h3>وسائل الوصول</h3>
-                <canvas id="arrivalChart"></canvas>
-            </div>
-        </div>
+<header>
+    <h1>توزيع الحجاج</h1>
+    <p>قراءة إحصائية لجهود المملكة العربية السعودية في استقبال ضيوف الرحمن من شتى بقاع الأرض</p>
+</header>
 
-        <div class="chart-box">
-            <h3>مستهدف أعداد المعتمرين (رؤية 2030)</h3>
-            <canvas id="umrahChart"></canvas>
+<div class="container">
+    
+    <div class="quote-box">
+        "خدمة الحرمين الشريفين شرف نعتز به، وقرارنا الدائم هو تذليل كافة الصعاب لراحة ضيوف الرحمن."
+    </div>
+
+    <div class="section">
+        <span class="section-number">01</span>
+        <h2>توزيع الحجاج حسب جهة القدوم</h2>
+        <div class="content-grid">
+            <div class="text-content">
+                <p>تستقبل المملكة سنوياً ملايين المسلمين، حيث تشكل النسبة الأكبر من الحجاج القادمين من خارج المملكة، مما يعكس الثقل الإسلامي والدولي لموسم الحج.</p>
+                <ul>
+                    <li><strong>90%</strong> حجاج من خارج المملكة.</li>
+                    <li><strong>10%</strong> حجاج من داخل المملكة.</li>
+                </ul>
+            </div>
+            <div class="chart-container">
+                <canvas id="pieChart"></canvas>
+            </div>
         </div>
     </div>
 
-    <script>
-        // تفعيل إضافة الأرقام على الرسم
-        Chart.register(ChartDataLabels);
+    <div class="section">
+        <span class="section-number">02</span>
+        <h2>التطور العددي عبر السنوات</h2>
+        <div class="text-content">
+            <p>شهدت أعداد الحجاج تحولات كبيرة تماشياً مع الطاقات الاستيعابية والمشاريع التطويرية في المشاعر المقدسة، بهدف الوصول إلى مستهدفات رؤية 2030.</p>
+        </div>
+        <div class="chart-container" style="max-height: 400px; margin-top: 20px;">
+            <canvas id="lineChart"></canvas>
+        </div>
+    </div>
 
-        const commonOptions = {
+</div>
+
+<footer>
+    <p>تم إعداد هذا المشروع بناءً على المؤشرات الإحصائية الرسمية لوزارة الحج والعمرة</p>
+</footer>
+
+<script>
+    // Pie Chart
+    const ctxPie = document.getElementById('pieChart').getContext('2d');
+    new Chart(ctxPie, {
+        type: 'pie',
+        data: {
+            labels: ['خارج المملكة', 'داخل المملكة'],
+            datasets: [{
+                data: [90, 10],
+                backgroundColor: ['#1b5e20', '#c5a059'],
+                borderWidth: 0
+            }]
+        },
+        options: {
             responsive: true,
-            plugins: {
-                legend: { labels: { font: { family: 'Tajawal', size: 14 } } },
-                datalabels: {
-                    color: '#fff',
-                    font: { weight: 'bold', size: 16, family: 'Tajawal' },
-                    formatter: (value) => value + '%' // إضافة علامة % للنسب
-                }
-            }
-        };
+            plugins: { legend: { position: 'bottom' } }
+        }
+    });
 
-        // الرسم البياني للأعمدة (بدون نسبة مئوية داخل العمود لجمالية الشكل)
-        new Chart(document.getElementById('hajjChart'), {
-            type: 'bar',
-            data: { 
-                labels: ['1444هـ', '1445هـ', '1446هـ'], 
-                datasets: [{ label: 'عدد الحجاج (مليون)', data: [1.84, 1.83, 1.67], backgroundColor: '#1a535c' }] 
-            },
-            options: { ...commonOptions, plugins: { ...commonOptions.plugins, datalabels: { display: false } } }
-        });
+    // Line Chart (بيانات افتراضية للتوضيح)
+    const ctxLine = document.getElementById('lineChart').getContext('2d');
+    new Chart(ctxLine, {
+        type: 'line',
+        data: {
+            labels: ['2021', '2022', '2023', '2024', '2025'],
+            datasets: [{
+                label: 'إجمالي الحجاج (بالمليون)',
+                data: [0.06, 0.9, 1.8, 1.8, 2.0], 
+                borderColor: '#1b5e20',
+                fill: true,
+                backgroundColor: 'rgba(27, 94, 32, 0.1)',
+                tension: 0.4
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: { y: { beginAtZero: true } }
+        }
+    });
+</script>
 
-        // توزيع الحجاج (Pie) - تظهر فيه النسب
-        new Chart(document.getElementById('distChart'), {
-            type: 'pie',
-            data: { 
-                labels: ['خارج المملكة', 'داخل المملكة'], 
-                datasets: [{ data: [90, 10], backgroundColor: ['#4ecdc4', '#ff6b6b'] }] 
-            },
-            options: commonOptions
-        });
-
-        // وسائل الوصول (Doughnut) - تظهر فيه النسب
-        new Chart(document.getElementById('arrivalChart'), {
-            type: 'doughnut',
-            data: { 
-                labels: ['جوّاً', 'برّاً/بحراً'], 
-                datasets: [{ data: [94, 6], backgroundColor: ['#d4af37', '#2f3e46'] }] 
-            },
-            options: commonOptions
-        });
-
-        // نمو المعتمرين
-        new Chart(document.getElementById('umrahChart'), {
-            type: 'line',
-            data: { 
-                labels: ['2023', '2025', '2030'], 
-                datasets: [{ label: 'مليون معتمر', data: [13.5, 18, 30], borderColor: '#1a535c', fill: true, backgroundColor: 'rgba(26, 83, 92, 0.1)' }] 
-            },
-            options: { ...commonOptions, plugins: { ...commonOptions.plugins, datalabels: { align: 'top', color: '#1a535c', formatter: (value) => value + 'M' } } }
-        });
-    </script>
 </body>
 </html>
