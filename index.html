@@ -12,21 +12,22 @@
     <style>
         body { font-family: 'Cairo', sans-serif; background-color: #f4f7f4; margin: 0; padding: 0; color: #333; line-height: 1.8; }
         
+        /* الهيدر باستخدام خلفية ملونة فخمة كبديل نهائي ومستقر */
         .hero { 
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), 
-                        url('https://images.unsplash.com/photo-1565715200720-639599557262?q=80&w=2070&auto=format&fit=crop'); 
-            background-size: cover; background-position: center; background-attachment: fixed;
-            height: 450px; display: flex; flex-direction: column; justify-content: center; 
-            align-items: center; color: white; text-align: center; padding: 20px; 
+            background: linear-gradient(135deg, #1b5e20 0%, #0d2e10 100%);
+            height: 400px; display: flex; flex-direction: column; justify-content: center; 
+            align-items: center; color: white; text-align: center; padding: 20px;
+            border-bottom: 8px solid #c5a059;
         }
-        .hero h1 { font-size: 3rem; margin: 0; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+        .hero h1 { font-size: 3.5rem; margin: 0; text-shadow: 2px 2px 10px rgba(0,0,0,0.3); }
+        .hero p { font-size: 1.5rem; opacity: 0.9; }
 
-        .container { max-width: 1000px; margin: -60px auto 50px; padding: 0 20px; }
+        .container { max-width: 1000px; margin: -50px auto 50px; padding: 0 20px; }
         .card { background: white; border-radius: 20px; padding: 40px; margin-bottom: 35px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); }
         h2, h3 { color: #1b5e20; border-right: 6px solid #c5a059; padding-right: 15px; margin-bottom: 25px; }
         .chart-container { position: relative; height: 350px; width: 100%; margin-top: 20px; }
         .quote-box { background: #f1f8f1; border-right: 5px solid #c5a059; padding: 30px; margin: 30px 0; font-weight: bold; color: #1b5e20; border-radius: 0 15px 15px 0; text-align: center; }
-        .conclusion-card { background: linear-gradient(135deg, #1b5e20, #154618); color: white; border-radius: 20px; padding: 50px; text-align: center; line-height: 2; }
+        .conclusion-card { background: linear-gradient(135deg, #1b5e20, #154618); color: white; border-radius: 20px; padding: 50px; text-align: center; }
         footer { text-align: center; padding: 40px; color: #666; font-size: 0.9rem; }
     </style>
 </head>
@@ -52,31 +53,31 @@
 
     <div class="card">
         <h3>1. توزيع الحجاج حسب جهة القدوم</h3>
-        <p>تشكل نسبة القادمين من الخارج 90% من الإجمالي، مما يعكس الثقل الدولي للمنظومة.</p>
+        <p>تشكل نسبة الحجاج من خارج المملكة 90%، بينما يمثل حجاج الداخل 10%.</p>
         <div class="chart-container"><canvas id="chart1"></canvas></div>
     </div>
 
     <div class="card">
         <h3>2. توزيع الحجاج حسب منافذ القدوم</h3>
-        <p>يستحوذ المنفذ الجوي على نسبة 88% لضمان وصول سريع وآمن لضيوف الرحمن من مختلف القارات.</p>
+        <p>يعتبر المنفذ الجوي هو الخيار الأول بنسبة 88% لضمان سرعة الوصول.</p>
         <div class="chart-container"><canvas id="chart2"></canvas></div>
     </div>
 
     <div class="card">
-        <h3>3. التطور العددي السنوي (بالمليون)</h3>
-        <p>تؤكد البيانات عودة تصاعدية قوية في أعداد الحجاج، مما يعكس نجاح المشاريع التوسعية العملاقة في استيعاب الأعداد المتزايدة.</p>
+        <h3>3. التطور العددي السنوي للحجاج</h3>
+        <p>يوضح الرسم البياني التصاعد المستمر في الأعداد وصولاً إلى 2.0 مليون حاج في 2025.</p>
         <div class="chart-container"><canvas id="chart3"></canvas></div>
     </div>
 
     <div class="card">
         <h3>4. توزيع الحجاج حسب الفئات العمرية</h3>
-        <p>يساعد تحليل الأعمار في توجيه الخدمات بشكل دقيق، مع التركيز على وسائل التنقل الذكية والمنصات الرقمية.</p>
+        <p>الفئة العمرية بين 31-50 عاماً هي الأكثر حضوراً بنسبة 40%.</p>
         <div class="chart-container"><canvas id="chart4"></canvas></div>
     </div>
 
     <div class="conclusion-card">
         <h3>خاتمة وقراءة مستقبلية للمنظومة</h3>
-        <p>ختاماً، إن النجاح الاستثنائي في إدارة ملايين الحجاج يثبت تفوق المملكة في "الإدارة الذكية" القائمة على البيانات الضخمة. إن التحول من الإدارة التقليدية إلى الرقمنة الشاملة يفتح آفاقاً واسعة لمستقبل الوظائف والخدمات في هذا القطاع العظيم، لتبقى راحة ضيوف الرحمن هي الغاية الأسمى والمؤشر الحقيقي للنجاح.</p>
+        <p>ختاماً، إن النجاح الاستثنائي في إدارة ملايين الحجاج يثبت تفوق المملكة في "الإدارة الذكية" القائمة على البيانات الضخمة. إن التحول الرقمي الشامل يفتح آفاقاً واسعة لمستقبل الخدمات في هذا القطاع العظيم.</p>
     </div>
 
 </div>
@@ -86,39 +87,29 @@
 <script>
     window.onload = function() {
         Chart.register(ChartDataLabels);
-        
-        const labelSettings = { 
-            color: '#1b5e20', 
-            font: { weight: 'bold', size: 16 }, 
-            anchor: 'end', align: 'top', offset: 4,
-            formatter: (v) => v + '%' 
-        };
+        const labelSettings = { color: '#1b5e20', font: { weight: 'bold', size: 16 }, anchor: 'end', align: 'top', formatter: (v) => v + '%' };
 
-        // الرسم 1
         new Chart(document.getElementById('chart1'), {
             type: 'doughnut',
             data: { labels: ['خارج المملكة', 'داخل المملكة'], datasets: [{ data: [90, 10], backgroundColor: ['#1b5e20', '#c5a059'] }] },
             options: { responsive: true, maintainAspectRatio: false, plugins: { datalabels: { ...labelSettings, color: '#fff', align: 'center' } } }
         });
 
-        // الرسم 2
         new Chart(document.getElementById('chart2'), {
             type: 'bar',
             data: { labels: ['جوي', 'بري', 'بحري'], datasets: [{ label: 'النسبة', data: [88, 10, 2], backgroundColor: '#1b5e20' }] },
             options: { responsive: true, maintainAspectRatio: false, plugins: { datalabels: labelSettings } }
         });
 
-        // الرسم 3
         new Chart(document.getElementById('chart3'), {
             type: 'line',
             data: { labels: ['2021', '2022', '2023', '2024', '2025'], datasets: [{ label: 'مليون', data: [0.06, 0.9, 1.84, 1.83, 2.0], borderColor: '#1b5e20', fill: true, backgroundColor: 'rgba(27,94,32,0.1)' }] },
             options: { responsive: true, maintainAspectRatio: false }
         });
 
-        // الرسم 4
         new Chart(document.getElementById('chart4'), {
             type: 'bar',
-            data: { labels: ['تحت 30', '31-50', '51-70', 'فوق 70'], datasets: [{ label: 'النسبة', data: [15, 40, 35, 10], backgroundColor: '#c5a059' }] },
+            data: { labels: ['30-', '31-50', '51-70', '70+'], datasets: [{ label: 'النسبة', data: [15, 40, 35, 10], backgroundColor: '#c5a059' }] },
             options: { responsive: true, maintainAspectRatio: false, plugins: { datalabels: labelSettings } }
         });
     };
