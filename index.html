@@ -8,9 +8,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #1b5e20; /* أخضر ملكي */
-            --accent-color: #c5a059;  /* ذهبي هادئ */
-            --bg-color: #f9fbf9;
+            --primary-color: #1b5e20;
+            --accent-color: #c5a059;
+            --bg-color: #f4f7f4;
             --text-dark: #2c3e50;
         }
 
@@ -19,18 +19,17 @@
             background-color: var(--bg-color);
             color: var(--text-dark);
             margin: 0;
-            line-height: 1.6;
+            line-height: 1.8;
         }
 
-        /* رأس الصفحة - Header */
-/* رأس الصفحة - Header المحدث */
+        /* رأس الصفحة مع صورة ثابتة */
         header {
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                        url('https://p-m-s.com/wp-content/uploads/2023/06/hajj-1.jpg'); /* رابط صورة بديل */
+                        url('https://www.spa.gov.sa/uploads/original/202306/multimedia-20230625-728867-61101.jpg');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed; /* يعطي تأثير حركة جميل عند التمرير */
-            height: 60vh;
+            background-attachment: fixed;
+            height: 70vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -38,75 +37,85 @@
             color: white;
             text-align: center;
             padding: 20px;
-            background-color: #1b5e20; /* لون أخضر احتياطي في حال لم تظهر الصورة */
         }
-        header h1 { font-size: 3rem; margin-bottom: 10px; }
-        header p { font-size: 1.2rem; max-width: 700px; }
+
+        header h1 { font-size: 3.5rem; margin-bottom: 15px; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
+        header p { font-size: 1.4rem; max-width: 800px; font-weight: 300; }
 
         .container {
-            max-width: 900px;
-            margin: -50px auto 50px auto;
+            max-width: 1000px;
+            margin: -80px auto 50px auto;
             padding: 20px;
         }
 
-        /* الأقسام - Sections */
         .section {
             background: white;
-            border-radius: 15px;
-            padding: 40px;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-radius: 20px;
+            padding: 50px;
+            margin-bottom: 40px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
             position: relative;
-            overflow: hidden;
         }
 
         .section-number {
-            font-size: 5rem;
-            color: rgba(27, 94, 32, 0.05);
+            font-size: 6rem;
+            color: rgba(27, 94, 32, 0.07);
             position: absolute;
-            top: -10px;
-            right: 20px;
+            top: -20px;
+            right: 30px;
             font-weight: 900;
         }
 
         .section h2 {
             color: var(--primary-color);
-            border-right: 5px solid var(--accent-color);
-            padding-right: 15px;
-            margin-bottom: 20px;
+            border-right: 6px solid var(--accent-color);
+            padding-right: 20px;
+            margin-bottom: 30px;
+            font-size: 1.8rem;
         }
 
         .content-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            align-items: center;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 40px;
+            align-items: start;
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 850px) {
             .content-grid { grid-template-columns: 1fr; }
-            header h1 { font-size: 2rem; }
+            header h1 { font-size: 2.5rem; }
         }
 
         .chart-container {
             width: 100%;
-            max-height: 300px;
+            background: #fff;
+            padding: 15px;
+            border-radius: 10px;
         }
 
         .quote-box {
-            background: #f0f4f0;
-            border-right: 4px solid var(--primary-color);
-            padding: 20px;
-            margin: 40px 0;
-            font-style: italic;
-            font-size: 1.1rem;
+            background: white;
+            border-right: 5px solid var(--accent-color);
+            padding: 30px;
+            margin: 50px 0;
+            font-size: 1.3rem;
             text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-radius: 0 15px 15px 0;
+        }
+
+        .highlight-card {
+            background: var(--primary-color);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 20px;
         }
 
         footer {
             text-align: center;
-            padding: 40px;
-            background: #1b5e20;
+            padding: 50px;
+            background: #154618;
             color: white;
         }
     </style>
@@ -115,89 +124,14 @@
 
 <header>
     <h1>توزيع الحجاج</h1>
-    <p>قراءة إحصائية لجهود المملكة العربية السعودية في استقبال ضيوف الرحمن من شتى بقاع الأرض</p>
+    <p>تحليل سكان وإحصائي شامل لرحلة الإيمان: كيف تدير المملكة أكبر تجمع بشري سنوي في العالم؟</p>
 </header>
 
 <div class="container">
     
     <div class="quote-box">
-        "خدمة الحرمين الشريفين شرف نعتز به، وقرارنا الدائم هو تذليل كافة الصعاب لراحة ضيوف الرحمن."
+        "إن خدمة ضيوف الرحمن والقيام على راحتهم، وأمنهم، وسلامتهم، هي أولويتنا القصوى وقدرنا الذي نعتز به."
     </div>
 
     <div class="section">
-        <span class="section-number">01</span>
-        <h2>توزيع الحجاج حسب جهة القدوم</h2>
-        <div class="content-grid">
-            <div class="text-content">
-                <p>تستقبل المملكة سنوياً ملايين المسلمين، حيث تشكل النسبة الأكبر من الحجاج القادمين من خارج المملكة، مما يعكس الثقل الإسلامي والدولي لموسم الحج.</p>
-                <ul>
-                    <li><strong>90%</strong> حجاج من خارج المملكة.</li>
-                    <li><strong>10%</strong> حجاج من داخل المملكة.</li>
-                </ul>
-            </div>
-            <div class="chart-container">
-                <canvas id="pieChart"></canvas>
-            </div>
-        </div>
-    </div>
-
-    <div class="section">
-        <span class="section-number">02</span>
-        <h2>التطور العددي عبر السنوات</h2>
-        <div class="text-content">
-            <p>شهدت أعداد الحجاج تحولات كبيرة تماشياً مع الطاقات الاستيعابية والمشاريع التطويرية في المشاعر المقدسة، بهدف الوصول إلى مستهدفات رؤية 2030.</p>
-        </div>
-        <div class="chart-container" style="max-height: 400px; margin-top: 20px;">
-            <canvas id="lineChart"></canvas>
-        </div>
-    </div>
-
-</div>
-
-<footer>
-    <p>تم إعداد هذا المشروع بناءً على المؤشرات الإحصائية الرسمية لوزارة الحج والعمرة</p>
-</footer>
-
-<script>
-    // Pie Chart
-    const ctxPie = document.getElementById('pieChart').getContext('2d');
-    new Chart(ctxPie, {
-        type: 'pie',
-        data: {
-            labels: ['خارج المملكة', 'داخل المملكة'],
-            datasets: [{
-                data: [90, 10],
-                backgroundColor: ['#1b5e20', '#c5a059'],
-                borderWidth: 0
-            }]
-        },
-        options: {
-            responsive: true,
-            plugins: { legend: { position: 'bottom' } }
-        }
-    });
-
-    // Line Chart (بيانات افتراضية للتوضيح)
-    const ctxLine = document.getElementById('lineChart').getContext('2d');
-    new Chart(ctxLine, {
-        type: 'line',
-        data: {
-            labels: ['2021', '2022', '2023', '2024', '2025'],
-            datasets: [{
-                label: 'إجمالي الحجاج (بالمليون)',
-                data: [0.06, 0.9, 1.8, 1.8, 2.0], 
-                borderColor: '#1b5e20',
-                fill: true,
-                backgroundColor: 'rgba(27, 94, 32, 0.1)',
-                tension: 0.4
-            }]
-        },
-        options: {
-            responsive: true,
-            scales: { y: { beginAtZero: true } }
-        }
-    });
-</script>
-
-</body>
-</html>
+        <span class="section
