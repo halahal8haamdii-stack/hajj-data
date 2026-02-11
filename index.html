@@ -19,10 +19,10 @@
         }
         .hero h1 { font-size: 2.8rem; margin: 0; }
         
-        .container { max-width: 950px; margin: -60px auto 50px; padding: 0 20px; }
+        .container { max-width: 1000px; margin: -60px auto 50px; padding: 0 20px; }
         
         .card { 
-            background: white; border-radius: 20px; padding: 45px; 
+            background: white; border-radius: 20px; padding: 40px; 
             margin-bottom: 35px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); 
         }
         
@@ -35,4 +35,118 @@
         
         .quote-box { 
             background: #f1f8f1; border-right: 5px solid #c5a059; padding: 30px; 
-            margin: 30px 0; font-weight: bold; color: #1b5e20; border
+            margin: 30px 0; font-weight: bold; color: #1b5e20; border-radius: 0 15px 15px 0; 
+            font-size: 1.2rem; text-align: center;
+        }
+
+        .conclusion-card { 
+            background: linear-gradient(135deg, #1b5e20, #154618); 
+            color: white; border-radius: 20px; padding: 50px; text-align: center; 
+            box-shadow: 0 10px 30px rgba(27, 94, 32, 0.2);
+        }
+        
+        footer { text-align: center; padding: 40px; color: #666; font-size: 0.9rem; }
+        canvas { width: 100% !important; height: 100% !important; }
+    </style>
+</head>
+<body>
+
+<div class="hero">
+    <h1>توزيع الحجاج</h1>
+    <p>تحليل إحصائي دقيق وتوزيع جغرافي لضيوف الرحمن</p>
+</div>
+
+<div class="container">
+    
+    <div class="card">
+        <h2>مستقبل الخدمات الوظيفية والتقنية في منظومة الحج</h2>
+        <p>يعد الحج أكبر تجمع بشري سنوي منتظم في العالم، وهو ما يجعل من إدارته تحدياً لوجستياً وسكانياً يتطلب أعلى درجات الدقة والابتكار. لم يعد التركيز اليوم منصباً فقط على تقديم الخدمات الأساسية، بل انتقل إلى آفاق أرحب تعتمد على "أنسنة" تجربة الحاج من خلال توظيف التقنيات الحديثة والتحليلات البيانية المتقدمة.</p>
+        
+        <div class="quote-box">
+            "خدمة الحرمين الشريفين شرف نعتز به، وقرارنا الدائم هو تذليل كافة الصعاب لراحة ضيوف الرحمن"
+        </div>
+        
+        <p>إن فهم التوزيع الجغرافي للحجاج ودراسة جهات قدومهم وطرق وصولهم ليس مجرد عملية إحصائية، بل هو حجر الزاوية في بناء استراتيجيات التفويج، وإدارة الكثافات البشرية في المشاعر المقدسة، وتخصيص الموارد الصحية والأمنية والخدمية بما يضمن سلامة وطمأنينة كل حاج.</p>
+    </div>
+
+    <div class="card">
+        <h3>1. توزيع الحجاج حسب جهة القدوم</h3>
+        <div class="grid">
+            <div class="text-part">
+                <p>تشكل نسبة القادمين من الخارج الغالبية العظمى (90%)، مما يضع المملكة في قلب العالم الإسلامي كوجهة أولى لهذا التجمع الإيماني الفريد.</p>
+            </div>
+            <div class="chart-part">
+                <canvas id="pieChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>2. توزيع الحجاج حسب منافذ القدوم</h3>
+        <div class="grid">
+            <div class="text-part">
+                <p>تعتمد المملكة على بنية تحتية جوية وبرية وبحرية متطورة، حيث يستحوذ المنفذ الجوي على النسبة الأكبر لتسهيل وصول ضيوف الرحمن من القارات البعيدة.</p>
+            </div>
+            <div class="chart-part">
+                <canvas id="barChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>3. مؤشرات النمو والتطور العددي</h3>
+        <div class="grid">
+            <div class="text-part">
+                <p>تعكس البيانات التاريخية والحديثة عودة قوية وتصاعدية لأعداد الحجاج، وهو ما يترجم كفاءة المشاريع التوسعية العملاقة في استيعاب الأعداد المتزايدة.</p>
+            </div>
+            <div class="chart-part">
+                <canvas id="lineChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3>4. توزيع الحجاج حسب الفئات العمرية</h3>
+        <div class="grid">
+            <div class="text-part">
+                <p>يساعد تحليل الفئات العمرية في توجيه الخدمات الصحية واللوجستية، حيث يتم التركيز على توفير وسائل تنقل مريحة لكبار السن وخدمات تقنية تناسب الشباب.</p>
+            </div>
+            <div class="chart-part">
+                <canvas id="ageChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="conclusion-card">
+        <h3>الخلاصة والقراءة المستقبلية للمنظومة</h3>
+        <p>ختاماً، يتضح لنا أن مستقبل إدارة الحج يرتكز بشكل أساسي على الشراكة الوثيقة بين البيانات والتقنية. إن النجاح في استضافة ملايين الحجاج سنوياً يثبت أن المملكة قد تجاوزت المفهوم التقليدي لإدارة الحشود إلى مفهوم "الإدارة الذكية والبيانات الضخمة".</p>
+        <p style="margin-top: 15px;">إن التوجه نحو رقمنة كافة مراحل رحلة الحاج، يفتح آفاقاً جديدة للوظائف التقنية واللوجستية، حيث تظل راحة ضيوف الرحمن هي الغاية الأسمى والمؤشر الحقيقي للنجاح.</p>
+    </div>
+
+</div>
+
+<footer>
+    تم إعداد هذا المشروع بناءً على المؤشرات الإحصائية الرسمية لوزارة الحج والعمرة 2026
+</footer>
+
+<script>
+    window.onload = function() {
+        Chart.register(ChartDataLabels);
+
+        // 1. الدائري (خارج/داخل)
+        new Chart(document.getElementById('pieChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ['خارج المملكة', 'داخل المملكة'],
+                datasets: [{
+                    data: [90, 10],
+                    backgroundColor: ['#1b5e20', '#c5a059']
+                }]
+            },
+            options: {
+                responsive: true, maintainAspectRatio: false,
+                plugins: { datalabels: { color: '#fff', formatter: (v) => v + '%' } }
+            }
+        });
+
+        // 2. الأعمدة (طريقة القدوم)
