@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>توزيع الحجاج - إحصائيات شاملة</title>
+    <title>توزيع الحجاج - إحصائيات شاملة 2026</title>
     
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
@@ -12,9 +12,10 @@
     <style>
         body { font-family: 'Cairo', sans-serif; background-color: #f4f7f4; margin: 0; padding: 0; color: #333; line-height: 1.8; }
         
+        /* الهيدر بصورة مباشرة وعالية الجودة للحرم المكي */
         .hero { 
             background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), 
-                        url('./header.jpg'); /* هذا المسار يقرأ صورتك المرفوعة بالضبط */
+                        url('https://images.unsplash.com/photo-1564769625905-50e93615e769?q=80&w=2000&auto=format&fit=crop'); 
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -62,30 +63,22 @@
 
     <div class="card">
         <h3>1. توزيع الحجاج حسب جهة القدوم</h3>
-        <div class="grid">
-            <div class="chart-part"><canvas id="pieChart"></canvas></div>
-        </div>
+        <div class="grid"><div class="chart-part"><canvas id="pieChart"></canvas></div></div>
     </div>
 
     <div class="card">
         <h3>2. توزيع الحجاج حسب منافذ القدوم</h3>
-        <div class="grid">
-            <div class="chart-part"><canvas id="barChart"></canvas></div>
-        </div>
+        <div class="grid"><div class="chart-part"><canvas id="barChart"></canvas></div></div>
     </div>
 
     <div class="card">
         <h3>3. مؤشرات النمو والتطور العددي</h3>
-        <div class="grid">
-            <div class="chart-part"><canvas id="lineChart"></canvas></div>
-        </div>
+        <div class="grid"><div class="chart-part"><canvas id="lineChart"></canvas></div></div>
     </div>
 
     <div class="card">
         <h3>4. توزيع الحجاج حسب الفئات العمرية</h3>
-        <div class="grid">
-            <div class="chart-part"><canvas id="ageChart"></canvas></div>
-        </div>
+        <div class="grid"><div class="chart-part"><canvas id="ageChart"></canvas></div></div>
     </div>
 
     <div class="conclusion-card">
