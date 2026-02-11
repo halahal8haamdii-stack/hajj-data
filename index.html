@@ -23,11 +23,13 @@
         }
 
         /* رأس الصفحة - Header */
+/* رأس الصفحة - Header المحدث */
         header {
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                        url('https://images.unsplash.com/photo-1565019053022-133077e0288b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+                        url('https://p-m-s.com/wp-content/uploads/2023/06/hajj-1.jpg'); /* رابط صورة بديل */
             background-size: cover;
             background-position: center;
+            background-attachment: fixed; /* يعطي تأثير حركة جميل عند التمرير */
             height: 60vh;
             display: flex;
             flex-direction: column;
@@ -36,8 +38,8 @@
             color: white;
             text-align: center;
             padding: 20px;
+            background-color: #1b5e20; /* لون أخضر احتياطي في حال لم تظهر الصورة */
         }
-
         header h1 { font-size: 3rem; margin-bottom: 10px; }
         header p { font-size: 1.2rem; max-width: 700px; }
 
