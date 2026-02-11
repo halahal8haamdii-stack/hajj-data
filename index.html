@@ -12,7 +12,6 @@
     <style>
         body { font-family: 'Cairo', sans-serif; background-color: #f4f7f4; margin: 0; padding: 0; color: #333; line-height: 1.8; }
         
-        /* الهيدر بصورة بانورامية واسعة ومضمونة الظهور */
         .hero { 
             background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.4)), 
                         url('https://images.unsplash.com/photo-1565715200720-639599557262?q=80&w=2070&auto=format&fit=crop'); 
@@ -22,12 +21,12 @@
         }
         .hero h1 { font-size: 3rem; margin: 0; text-shadow: 2px 2px 10px rgba(0,0,0,0.5); }
 
-        .container { max-width: 900px; margin: -60px auto 50px; padding: 0 20px; }
+        .container { max-width: 1000px; margin: -60px auto 50px; padding: 0 20px; }
         .card { background: white; border-radius: 20px; padding: 40px; margin-bottom: 35px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); }
         h2, h3 { color: #1b5e20; border-right: 6px solid #c5a059; padding-right: 15px; margin-bottom: 25px; }
         .chart-container { position: relative; height: 350px; width: 100%; margin-top: 20px; }
         .quote-box { background: #f1f8f1; border-right: 5px solid #c5a059; padding: 30px; margin: 30px 0; font-weight: bold; color: #1b5e20; border-radius: 0 15px 15px 0; text-align: center; }
-        .conclusion-card { background: linear-gradient(135deg, #1b5e20, #154618); color: white; border-radius: 20px; padding: 50px; text-align: center; }
+        .conclusion-card { background: linear-gradient(135deg, #1b5e20, #154618); color: white; border-radius: 20px; padding: 50px; text-align: center; line-height: 2; }
         footer { text-align: center; padding: 40px; color: #666; font-size: 0.9rem; }
     </style>
 </head>
@@ -42,8 +41,13 @@
     
     <div class="card">
         <h2>مستقبل الخدمات الوظيفية والتقنية في منظومة الحج</h2>
-        <p>تعد رحلة الحج أكبر تجمع بشري سنوي منتظم، وتتطلب دمج أحدث التقنيات والتحليلات البيانية لضمان أمن وراحة كل حاج عبر "أنسنة" التجربة بالكامل.</p>
-        <div class="quote-box">"خدمة الحرمين الشريفين شرف نعتز به"</div>
+        <p>تعد رحلة الحج أكبر تجمع بشري سنوي منتظم على مستوى العالم، وهو ما يضع المملكة في قلب تحدٍ لوجستي وسكاني فريد من نوعه. لم يعد الهدف اليوم يقتصر على تقديم الخدمات التقليدية، بل انتقل الطموح نحو "أنسنة" التجربة بالكامل عبر دمج أحدث التقنيات والتحليلات البيانية المتقدمة لضمان أمن وسلامة وراحة كل حاج.</p>
+        
+        <div class="quote-box">
+            "خدمة الحرمين الشريفين شرف نعتز به، وقرارنا الدائم هو تذليل كافة الصعاب لراحة ضيوف الرحمن"
+        </div>
+        
+        <p>تبرز أهمية هذه القراءة السكانية في تحليل "جهة القدوم" وتوزيع الفئات العمرية، حيث تسهم هذه البيانات الحيوية في رسم سياسات التفويج الذكي، وإدارة المرافق اللوجستية، وتوزيع الكوادر الطبية والخدمية بدقة متناهية.</p>
     </div>
 
     <div class="card">
@@ -54,71 +58,68 @@
 
     <div class="card">
         <h3>2. توزيع الحجاج حسب منافذ القدوم</h3>
-        <p>يستحوذ المنفذ الجوي على نسبة 88% لضمان وصول سريع وآمن لضيوف الرحمن.</p>
+        <p>يستحوذ المنفذ الجوي على نسبة 88% لضمان وصول سريع وآمن لضيوف الرحمن من مختلف القارات.</p>
         <div class="chart-container"><canvas id="chart2"></canvas></div>
     </div>
 
     <div class="card">
         <h3>3. التطور العددي السنوي (بالمليون)</h3>
-        <p>تؤكد البيانات عودة تصاعدية قوية في أعداد الحجاج، مما يعكس نجاح المشاريع التوسعية.</p>
+        <p>تؤكد البيانات عودة تصاعدية قوية في أعداد الحجاج، مما يعكس نجاح المشاريع التوسعية العملاقة في استيعاب الأعداد المتزايدة.</p>
         <div class="chart-container"><canvas id="chart3"></canvas></div>
     </div>
 
     <div class="card">
         <h3>4. توزيع الحجاج حسب الفئات العمرية</h3>
-        <p>يساعد تحليل الأعمار في توجيه الخدمات بشكل دقيق، مع التركيز على التقنيات التي تناسب الشباب وكبار السن.</p>
+        <p>يساعد تحليل الأعمار في توجيه الخدمات بشكل دقيق، مع التركيز على وسائل التنقل الذكية والمنصات الرقمية.</p>
         <div class="chart-container"><canvas id="chart4"></canvas></div>
     </div>
 
     <div class="conclusion-card">
-        <h3>خاتمة وقراءة مستقبلية</h3>
-        <p>إن النجاح في إدارة ملايين الحجاج يثبت تفوق المملكة في الإدارة الذكية القائمة على البيانات الضخمة.</p>
+        <h3>خاتمة وقراءة مستقبلية للمنظومة</h3>
+        <p>ختاماً، إن النجاح الاستثنائي في إدارة ملايين الحجاج يثبت تفوق المملكة في "الإدارة الذكية" القائمة على البيانات الضخمة. إن التحول من الإدارة التقليدية إلى الرقمنة الشاملة يفتح آفاقاً واسعة لمستقبل الوظائف والخدمات في هذا القطاع العظيم، لتبقى راحة ضيوف الرحمن هي الغاية الأسمى والمؤشر الحقيقي للنجاح.</p>
     </div>
 
 </div>
+
+<footer>تم إعداد المشروع بناءً على المؤشرات الإحصائية الرسمية لعام 2026</footer>
 
 <script>
     window.onload = function() {
         Chart.register(ChartDataLabels);
         
-        // إعدادات الخط والنسب الموحدة (واضحة جداً)
         const labelSettings = { 
             color: '#1b5e20', 
             font: { weight: 'bold', size: 16 }, 
-            anchor: 'end',
-            align: 'top',
-            offset: 4,
+            anchor: 'end', align: 'top', offset: 4,
             formatter: (v) => v + '%' 
         };
 
-        const config = { responsive: true, maintainAspectRatio: false };
-
-        // 1. الدائري
+        // الرسم 1
         new Chart(document.getElementById('chart1'), {
             type: 'doughnut',
             data: { labels: ['خارج المملكة', 'داخل المملكة'], datasets: [{ data: [90, 10], backgroundColor: ['#1b5e20', '#c5a059'] }] },
-            options: { ...config, plugins: { datalabels: { ...labelSettings, color: '#fff', align: 'center' } } }
+            options: { responsive: true, maintainAspectRatio: false, plugins: { datalabels: { ...labelSettings, color: '#fff', align: 'center' } } }
         });
 
-        // 2. الأعمدة (المنافذ)
+        // الرسم 2
         new Chart(document.getElementById('chart2'), {
             type: 'bar',
             data: { labels: ['جوي', 'بري', 'بحري'], datasets: [{ label: 'النسبة', data: [88, 10, 2], backgroundColor: '#1b5e20' }] },
-            options: { ...config, plugins: { datalabels: labelSettings } }
+            options: { responsive: true, maintainAspectRatio: false, plugins: { datalabels: labelSettings } }
         });
 
-        // 3. الخط الزمني
+        // الرسم 3
         new Chart(document.getElementById('chart3'), {
             type: 'line',
             data: { labels: ['2021', '2022', '2023', '2024', '2025'], datasets: [{ label: 'مليون', data: [0.06, 0.9, 1.84, 1.83, 2.0], borderColor: '#1b5e20', fill: true, backgroundColor: 'rgba(27,94,32,0.1)' }] },
-            options: config
+            options: { responsive: true, maintainAspectRatio: false }
         });
 
-        // 4. الفئات العمرية
+        // الرسم 4
         new Chart(document.getElementById('chart4'), {
             type: 'bar',
-            data: { labels: ['30-', '31-50', '51-70', '70+'], datasets: [{ label: 'النسبة', data: [15, 40, 35, 10], backgroundColor: '#c5a059' }] },
-            options: { ...config, plugins: { datalabels: labelSettings } }
+            data: { labels: ['تحت 30', '31-50', '51-70', 'فوق 70'], datasets: [{ label: 'النسبة', data: [15, 40, 35, 10], backgroundColor: '#c5a059' }] },
+            options: { responsive: true, maintainAspectRatio: false, plugins: { datalabels: labelSettings } }
         });
     };
 </script>
