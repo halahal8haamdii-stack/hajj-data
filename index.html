@@ -8,50 +8,91 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
     
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Cairo', sans-serif; background-color: #f4f7f4; margin: 0; padding: 0; color: #333; line-height: 1.8; }
+        body { font-family: 'Cairo', sans-serif; background-color: #f8faf8; margin: 0; padding: 0; color: #444; line-height: 1.8; }
         
-        /* تنسيق الهيدر الجديد */
+        /* تحسين الهيدر: دمج الصورة مع المحتوى */
         .main-header {
             width: 100%;
-            line-height: 0; /* لمنع وجود فراغ تحت الصورة */
+            height: 350px;
+            overflow: hidden;
+            position: relative;
         }
         .main-header img {
             width: 100%;
-            height: auto;
-            max-height: 400px; /* تحديد أقصى ارتفاع لضمان عدم طغيان الصورة */
-            object-fit: cover; /* لقص الصورة بشكل متناسق إذا كانت عريضة جداً */
+            height: 100%;
+            object-fit: cover;
+        }
+        /* تظليل خفيف لدمج الصورة مع القسم الأخضر */
+        .main-header::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to top, #1b5e20, transparent);
         }
 
         .hero { 
-            background: linear-gradient(135deg, #1b5e20 0%, #0d2e10 100%);
-            height: 350px; display: flex; flex-direction: column; justify-content: center; 
-            align-items: center; color: white; text-align: center; padding: 20px;
-            border-bottom: 8px solid #c5a059;
+            background: linear-gradient(180deg, #1b5e20 0%, #0d2e10 100%);
+            padding: 60px 20px 120px; /* زيادة التباعد السفلي ليعطي مساحة للكارت */
+            color: white; 
+            text-align: center;
+            margin-top: -1px; /* لإزالة أي فجوة بيضاء بين الصورة واللون */
         }
-        .hero h1 { font-size: 3rem; margin: 0; text-shadow: 2px 2px 10px rgba(0,0,0,0.3); }
-        .hero p { font-size: 1.4rem; opacity: 0.9; margin-top: 15px; }
+        .hero h1 { font-size: 2.8rem; margin: 0; font-weight: 700; text-shadow: 2px 2px 8px rgba(0,0,0,0.2); }
+        .hero p { font-size: 1.3rem; opacity: 0.85; margin-top: 20px; font-weight: 400; }
 
-        .container { max-width: 1000px; margin: -50px auto 50px; padding: 0 20px; }
-        .card { background: white; border-radius: 20px; padding: 40px; margin-bottom: 35px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); }
-        h2, h3 { color: #1b5e20; border-right: 6px solid #c5a059; padding-right: 15px; margin-bottom: 25px; }
-        .chart-container { position: relative; height: 350px; width: 100%; margin-top: 20px; }
-        .quote-box { background: #f1f8f1; border-right: 5px solid #c5a059; padding: 30px; margin: 30px 0; font-weight: bold; color: #1b5e20; border-radius: 0 15px 15px 0; text-align: center; }
-        .conclusion-card { background: linear-gradient(135deg, #1b5e20, #154618); color: white; border-radius: 20px; padding: 50px; text-align: center; }
-        footer { text-align: center; padding: 40px; color: #666; font-size: 0.9rem; }
+        .container { max-width: 950px; margin: -80px auto 60px; padding: 0 20px; position: relative; z-index: 10; }
+        
+        .card { 
+            background: white; 
+            border-radius: 24px; 
+            padding: 45px; 
+            margin-bottom: 40px; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.06); 
+            border: 1px solid rgba(0,0,0,0.02);
+        }
 
-        /* تعديلات للهواتف */
+        h2, h3 { color: #1b5e20; border-right: 6px solid #c5a059; padding-right: 18px; margin-bottom: 30px; }
+        
+        .chart-container { position: relative; height: 380px; width: 100%; margin: 30px 0; }
+        
+        .quote-box { 
+            background: #f1f8f1; 
+            border-right: 5px solid #c5a059; 
+            padding: 35px; 
+            margin: 40px 0; 
+            font-weight: 600; 
+            color: #1b5e20; 
+            border-radius: 12px;
+            font-size: 1.1rem;
+        }
+
+        .conclusion-card { 
+            background: linear-gradient(135deg, #1b5e20, #0d2e10); 
+            color: white; 
+            border-radius: 24px; 
+            padding: 60px 40px; 
+            text-align: center; 
+            box-shadow: 0 10px 30px rgba(27,94,32,0.2);
+        }
+        
+        footer { text-align: center; padding: 50px; color: #888; font-size: 0.95rem; }
+
         @media (max-width: 600px) {
-            .hero h1 { font-size: 2rem; }
-            .hero { height: 250px; }
+            .hero h1 { font-size: 1.8rem; }
+            .main-header { height: 250px; }
+            .card { padding: 25px; }
         }
     </style>
 </head>
 <body>
 
 <header class="main-header">
-    <img src="header.jpg" alt="إدارة الحشود في الحج والعمرة">
+    <img src="header.jpg" alt="إدارة الحشود">
 </header>
 
 <div class="hero">
@@ -63,13 +104,13 @@
     
     <div class="card">
         <h2>مستقبل الخدمات الوظيفية والتقنية في منظومة الحج</h2>
-        <p>تعد رحلة الحج أكبر تجمع بشري سنوي منتظم على مستوى العالم، وهو ما يضع المملكة في قلب تحدٍ لوجستي وسكاني فريد من نوعه. لم يعد الهدف اليوم يقتصر على تقديم الخدمات التقليدية، بل انتقل الطموح نحو "أنسنة" التجربة بالكامل عبر دمج أحدث التقنيات والتحليلات البيانية المتقدمة لضمان أمن وسلامة وراحة كل حاج.</p>
+        <p>تعد رحلة الحج أكبر تجمع بشري سنوي منتظم على مستوى العالم، وهو ما يضع المملكة في قلب تحدٍ لوجستي وسكاني فريد من نوعه. لم يعد الهدف اليوم يقتصر على تقديم الخدمات التقليدية، بل انتقل الطموح نحو "أنسنة" التجربة بالكامل عبر دمج أحدث التقنيات والتحليلات البيانية المتقدمة.</p>
         
         <div class="quote-box">
             "خدمة الحرمين الشريفين شرف نعتز به، وقرارنا الدائم هو تذليل كافة الصعاب لراحة ضيوف الرحمن"
         </div>
         
-        <p>تبرز أهمية هذه القراءة السكانية في تحليل "جهة القدوم" وتوزيع الفئات العمرية، حيث تسهم هذه البيانات الحيوية في رسم سياسات التفويج الذكي، وإدارة المرافق اللوجستية، وتوزيع الكوادر الطبية والخدمية بدقة متناهية.</p>
+        <p>تسهم هذه البيانات الحيوية في رسم سياسات التفويج الذكي، وإدارة المرافق اللوجستية، وتوزيع الكوادر الطبية والخدمية بدقة متناهية وفقاً لجهة القدوم والتوزيع العمري.</p>
     </div>
 
     <div class="card">
@@ -80,57 +121,54 @@
 
     <div class="card">
         <h3>2. توزيع الحجاج حسب منافذ القدوم</h3>
-        <p>يعتمد الغالبية العظمى من الحجاج على المنافذ الجوية لضمان سرعة الوصول وكفاءة التنظيم.</p>
         <div class="chart-container"><canvas id="chart2"></canvas></div>
     </div>
 
     <div class="card">
         <h3>3. التطور العددي السنوي للحجاج</h3>
-        <p>يوضح الرسم البياني القدرة الاستيعابية المتطورة للمملكة في التعامل مع الأعداد المتزايدة سنوياً.</p>
         <div class="chart-container"><canvas id="chart3"></canvas></div>
     </div>
 
     <div class="card">
         <h3>4. توزيع الحجاج حسب الفئات العمرية</h3>
-        <p>يساعد تحليل التركيبة العمرية في تخصيص الخدمات الصحية واللوجستية بما يتناسب مع احتياجات كل فئة.</p>
         <div class="chart-container"><canvas id="chart4"></canvas></div>
     </div>
 
     <div class="conclusion-card">
-        <h3>خاتمة وقراءة مستقبلية للمنظومة</h3>
-        <p>ختاماً، إن النجاح الاستثنائي في إدارة ملايين الحجاج يثبت تفوق المملكة في "الإدارة الذكية" القائمة على البيانات الضخمة. إن التحول الرقمي الشامل يفتح آفاقاً واسعة لمستقبل الخدمات والوظائف في هذا القطاع العظيم، لتبقى راحة ضيوف الرحمن هي الغاية الأسمى.</p>
+        <h3>خاتمة وقراءة مستقبلية</h3>
+        <p>إن النجاح الاستثنائي في إدارة ملايين الحجاج يثبت تفوق المملكة في "الإدارة الذكية" القائمة على البيانات الضخمة، لتبقى راحة ضيوف الرحمن هي الغاية الأسمى.</p>
     </div>
 
 </div>
 
-<footer>تم إعداد المشروع بناءً على المؤشرات الإحصائية الرسمية لوزارة الحج والعمرة</footer>
+<footer>تم إعداد المشروع بناءً على المؤشرات الإحصائية الرسمية - 2026</footer>
 
 <script>
     window.onload = function() {
         Chart.register(ChartDataLabels);
-        const labelSettings = { color: '#1b5e20', font: { weight: 'bold', size: 16 }, anchor: 'end', align: 'top', formatter: (v) => v + '%' };
+        const labelSettings = { color: '#1b5e20', font: { weight: 'bold', size: 14 }, anchor: 'end', align: 'top', formatter: (v) => v + '%' };
 
         new Chart(document.getElementById('chart1'), {
             type: 'doughnut',
-            data: { labels: ['خارج المملكة', 'داخل المملكة'], datasets: [{ data: [90, 10], backgroundColor: ['#1b5e20', '#c5a059'] }] },
-            options: { responsive: true, maintainAspectRatio: false, plugins: { datalabels: { ...labelSettings, color: '#fff', align: 'center' } } }
+            data: { labels: ['خارج المملكة', 'داخل المملكة'], datasets: [{ data: [90, 10], backgroundColor: ['#1b5e20', '#c5a059'], borderWidth: 0 }] },
+            options: { responsive: true, maintainAspectRatio: false, plugins: { datalabels: { color: '#fff', align: 'center', font: { size: 16 } } } }
         });
 
         new Chart(document.getElementById('chart2'), {
             type: 'bar',
-            data: { labels: ['جوي', 'بري', 'بحري'], datasets: [{ label: 'النسبة', data: [88, 10, 2], backgroundColor: '#1b5e20' }] },
+            data: { labels: ['جوي', 'بري', 'بحري'], datasets: [{ label: 'النسبة', data: [88, 10, 2], backgroundColor: '#1b5e20', borderRadius: 8 }] },
             options: { responsive: true, maintainAspectRatio: false, plugins: { datalabels: labelSettings } }
         });
 
         new Chart(document.getElementById('chart3'), {
             type: 'line',
-            data: { labels: ['2020', '2021', '2022', '2023', '2024'], datasets: [{ label: 'مليون حاج', data: [0.06, 0.9, 1.84, 1.83, 2.0], borderColor: '#1b5e20', fill: true, backgroundColor: 'rgba(27,94,32,0.1)' }] },
+            data: { labels: ['2020', '2021', '2022', '2023', '2024'], datasets: [{ label: 'مليون حاج', data: [0.06, 0.9, 1.84, 1.83, 2.0], borderColor: '#1b5e20', tension: 0.4, fill: true, backgroundColor: 'rgba(27,94,32,0.05)' }] },
             options: { responsive: true, maintainAspectRatio: false }
         });
 
         new Chart(document.getElementById('chart4'), {
             type: 'bar',
-            data: { labels: ['تحت 30', '31-50', '51-70', 'فوق 70'], datasets: [{ label: 'النسبة', data: [15, 40, 35, 10], backgroundColor: '#c5a059' }] },
+            data: { labels: ['تحت 30', '31-50', '51-70', 'فوق 70'], datasets: [{ label: 'النسبة', data: [15, 40, 35, 10], backgroundColor: '#c5a059', borderRadius: 8 }] },
             options: { responsive: true, maintainAspectRatio: false, plugins: { datalabels: labelSettings } }
         });
     };
